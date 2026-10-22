@@ -15,17 +15,17 @@ C.site = {
   id: 'humeur',
   title1: 'Chimioarchitecture',
   title2: 'de l’humeur',
-  short: 'Antidépresseurs et thymorégulateurs, de la synapse à l’ordonnance',
-  kicker: 'Cours pour les internes de psychiatrie · 2 heures',
+  short: 'Antidépresseurs et thymorégulateurs : petit précis de psychopharmacologie',
+  kicker: '· Cours pour les internes de psychiatrie ·',
   author: 'Dr Ewen Kervadec',
   authorShort: 'E. Kervadec',
-  role: 'CCA, Département de psychiatrie et d’addictologie, Hôpital universitaire Paul-Brousse',
-  roleShort: 'CCA · Hôpital Paul-Brousse',
+  role: 'CCA, Département de psychiatrie et d’addictologie, Hôpital universitaire Paul-Brousse, AP-HP',
+  roleShort: 'CCA · Hôpital Paul-Brousse, AP-HP',
   place: 'DES de psychiatrie · Villejuif · 2026',
   year: '2026',
   /* Photographie de couverture : un banc de marbre gravé de sillons remplis de mousse (image fournie par l’auteur). */
   cover: { img: 'assets/img/couverture.jpg', wide: 'assets/img/couverture-16x9.jpg', alt: 'Banc de marbre gravé d’un labyrinthe de sillons remplis de mousse' },
-  lede: 'Pourquoi un médicament qui bloque un transporteur en quelques heures soigne une dépression en quelques semaines ; pourquoi la lithiémie se prélève le matin ; comment choisir, ajuster, associer et arrêter. Un cours à projeter et à manipuler, de la synapse à l’ordonnance.',
+  lede: 'Pourquoi un médicament qui bloque un transporteur en quelques heures soigne une dépression en quelques semaines ? Pourquoi la lithiémie se prélève le matin ? Comment choisir, ajuster, associer et arrêter ?',
   duration: 120,
   session: 'Le cours alterne des séquences courtes et des questions à la salle : trois questions d’ouverture, des prédictions avant chaque animation, deux cas cliniques, et un retour sur les questions du début. Chacun y répond pour soi, ou à voix haute s’il le souhaite : personne n’est interrogé, rien n’est compté, et la réponse vient au clic suivant.',
   asof: 'octobre 2026',
@@ -47,7 +47,7 @@ C.site = {
 C.sisters = [];
 
 C.chapters = [
-  { id: 'ouv', n: '00', t: 'Ouverture', mins: 8, emblem: 'hourglass', sub: 'Une histoire, trois questions, un plan.' },
+  { id: 'ouv', n: '00', t: 'Ouverture', mins: 8, emblem: 'hourglass', sub: 'Une histoire, un plan, quelques questions.' },
   { id: 'chimio', n: '01', t: 'Chimioarchitecture', mins: 22, emblem: 'funnel', sub: 'Trois monoamines, une poignée de noyaux, presque tout le cerveau.' },
   { id: 'ad', n: '02', t: 'Antidépresseurs', mins: 28, emblem: 'loop', sub: 'Un délai d’action, huit mécanismes, vingt-quatre molécules.' },
   { id: 'thymo', n: '03', t: 'Thymorégulateurs', mins: 25, emblem: 'spiral', sub: 'Traiter et prévenir, par le haut et par le bas.' },
@@ -1338,7 +1338,7 @@ C.slides.push(
 
 /* ───────── 00 · Ouverture ───────── */
 { id: 'couverture', ch: 'ouv', kind: 'cover', t: 'Chimioarchitecture de l’humeur', short: 'Couverture', mins: 1,
-  sub: 'Antidépresseurs et thymorégulateurs : des récepteurs à la prescription',
+  sub: 'Antidépresseurs et thymorégulateurs : petit précis de psychopharmacologie',
   notes: 'Se présenter. Annoncer le déroulé : deux heures, des questions posées à la salle en chemin. Chacun y répond pour soi, ou à voix haute s’il le souhaite ; personne n’est interrogé et l’on ne compte rien. Tout est en ligne : diapositives, fiches des molécules, cartes de révision.' },
 
 { id: 'sea-view', ch: 'ouv', t: 'Staten Island, 1952 : on danse dans les couloirs', short: 'Sea View, 1952', mins: 2,
