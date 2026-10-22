@@ -1,6 +1,6 @@
 # Chimioarchitecture de l’humeur
 
-Cours interactif pour les internes de psychiatrie, en début ou en milieu de DES : la **psychopharmacologie des antidépresseurs et des thymorégulateurs**, la **chimioarchitecture** des systèmes sérotoninergique, noradrénergique et dopaminergique qu’ils ciblent, et leur **place dans la pharmacopée française**. Le site se lit comme un manuel, se projette comme un diaporama de deux heures, et sert à s’entraîner et à réviser.
+Cours interactif pour les internes de psychiatrie, en début ou en milieu de DES : la **psychopharmacologie des antidépresseurs et des thymorégulateurs**, la **chimioarchitecture** des systèmes sérotoninergique, noradrénergique et dopaminergique qu’ils ciblent, et leur **place dans la pharmacopée française**. 
 
 Sources principales : Stahl, _Essential Psychopharmacology_ (4e éd., 2013) et _Prescriber’s Guide_ (7e éd., 2021) ; Shorter, _A History of Psychiatry_ (1997) pour l’histoire ; HAS 2017, recommandations françaises sur la dépression résistante (Bennabi 2019), CANMAT/ISBD 2018 ; RCP français et données de l’ANSM (octobre 2026). Les textes sont reformulés et toutes les figures sont originales.
 
@@ -38,21 +38,6 @@ python3 -m http.server 8000
 
 puis ouvrir http://localhost:8000.
 
-## Publier sur GitHub Pages
-
-1. Sur GitHub, crée un dépôt public, par exemple `chimioarchitecture`.
-2. Envoie-y **tout le contenu de ce dossier**, en gardant l’arborescence, sans oublier le fichier caché `.nojekyll`. Par le site GitHub : _Add file → Upload files_, glisse les fichiers et dossiers, puis _Commit changes_. Ou en ligne de commande, depuis ce dossier :
-
-   ```
-   git init && git add -A && git commit -m "Chimioarchitecture de l’humeur"
-   git branch -M main
-   git remote add origin https://github.com/<ton-compte>/chimioarchitecture.git
-   git push -u origin main
-   ```
-
-3. Dans le dépôt : _Settings → Pages → Build and deployment_ ; _Source : Deploy from a branch_ ; _Branch : main_, dossier _/ (root)_ ; _Save_.
-4. Une à deux minutes plus tard, le site est en ligne à `https://<ton-compte>.github.io/chimioarchitecture/`. Les codes QR des diapositives pointent automatiquement vers cette adresse.
-
 ## Modifier le contenu
 
 Tout le contenu est dans **`content/cours.js`** : métadonnées (`C.site`), chapitres, objectifs, diapositives (`C.slides`), fiches des molécules (`C.mols`), glossaire (`C.terms`), panneaux des cibles (`C.panes`), archives (`C.history`), votes (`C.votes`), QRM (`C.quiz`), cas, arbres, cartes de révision, affinités (`C.binding`) et structures 2D des molécules (`C.structures`, calculées avec RDKit).
@@ -74,6 +59,6 @@ node outils/verifier-contenu.js
 
 ## Avertissement et licences
 
-Ressource pédagogique : elle ne remplace ni le RCP ni un avis médical. Les posologies, AMM, règles de prescription et disponibilités évoluent ; vérifie-les dans les sources officielles avant de prescrire. Les simulations (synapse, lithiémie) sont qualitatives et ne servent pas à doser un patient.
+Ressource pédagogique : elle ne remplace ni le RCP ni un avis médical. Les posologies, AMM, règles de prescription et disponibilités évoluent ; vérifie-les dans les sources officielles avant de prescrire.
 
 Polices libres (licence SIL Open Font License, textes dans `assets/fonts/`) : **Mousse**, la police du titre, dessinée pour ce cours d’après un lettrage géométrique de Jean (Hans) Arp ; Newsreader, Jost, DM Mono, Didact Gothic et Literata (pour le grec). Générateur de codes QR : qrcode-generator de Kazuhiko Arase (licence MIT, `assets/vendor/`). Aucune donnée ne quitte le navigateur : la progression des cartes et des QRM reste en stockage local.
