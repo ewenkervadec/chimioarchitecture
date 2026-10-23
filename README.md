@@ -1,6 +1,6 @@
 # Chimioarchitecture de l’humeur
 
-Cours interactif pour les internes de psychiatrie, en début ou en milieu de DES : la **psychopharmacologie des antidépresseurs et des thymorégulateurs**, la **chimioarchitecture** des systèmes sérotoninergique, noradrénergique et dopaminergique qu’ils ciblent, et leur **place dans la pharmacopée française**. Le site se lit comme un manuel, se projette comme un diaporama de deux heures, et sert à s’entraîner et à réviser.
+Cours interactif pour les internes de psychiatrie, en début ou en milieu de DES : la **psychopharmacologie des antidépresseurs et des thymorégulateurs**, la **chimioarchitecture** des systèmes sérotoninergique, noradrénergique et dopaminergique qu’ils ciblent, et leur **place dans la pharmacopée française**. 
 
 Sources principales : Stahl, _Essential Psychopharmacology_ (4e éd., 2013) et _Prescriber’s Guide_ (7e éd., 2021) ; Shorter, _A History of Psychiatry_ (1997) pour l’histoire ; HAS 2017, recommandations françaises sur la dépression résistante (Bennabi 2019), CANMAT/ISBD 2018 ; RCP français et données de l’ANSM (octobre 2026). Les textes sont reformulés et toutes les figures sont originales.
 
