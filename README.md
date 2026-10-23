@@ -1,6 +1,6 @@
 # Chimioarchitecture de l’humeur
 
-Cours interactif pour les internes de psychiatrie, en début ou en milieu de DES : la **psychopharmacologie des antidépresseurs et des thymorégulateurs**, la **chimioarchitecture** des systèmes sérotoninergique, noradrénergique et dopaminergique qu’ils ciblent, et leur **place dans la pharmacopée française**. 
+Cours interactif pour les internes de psychiatrie, en début ou en milieu de DES : la **psychopharmacologie des antidépresseurs et des thymorégulateurs**, la **chimioarchitecture** des systèmes sérotoninergique, noradrénergique et dopaminergique qu’ils ciblent, et leur **place dans la pharmacopée française**. Le site se lit comme un manuel, se projette comme un diaporama de deux heures, et sert à s’entraîner et à réviser.
 
 Sources principales : Stahl, _Essential Psychopharmacology_ (4e éd., 2013) et _Prescriber’s Guide_ (7e éd., 2021) ; Shorter, _A History of Psychiatry_ (1997) pour l’histoire ; HAS 2017, recommandations françaises sur la dépression résistante (Bennabi 2019), CANMAT/ISBD 2018 ; RCP français et données de l’ANSM (octobre 2026). Les textes sont reformulés et toutes les figures sont originales.
 
@@ -8,7 +8,7 @@ Sources principales : Stahl, _Essential Psychopharmacology_ (4e éd., 2013) et _
 
 | Onglet | Contenu |
 |---|---|
-| **Le cours** | 78 diapositives en 6 chapitres, minutées pour 120 minutes (pause comprise). Chaque terme souligné ouvre sa définition (aperçus emboîtés) ; chaque molécule, cible ou archive s’ouvre en panneau à côté du texte. Recherche, mode « l’essentiel seulement », notes de l’enseignant, impression en polycopié. |
+| **Le cours** | 77 diapositives en 6 chapitres, minutées pour 120 minutes (pause comprise). Chaque terme souligné ouvre sa définition (aperçus emboîtés) ; chaque molécule, cible ou archive s’ouvre en panneau à côté du texte. Recherche, mode « l’essentiel seulement », notes de l’enseignant, impression en polycopié. |
 | **Laboratoires** | Six visualisations à manipuler : la synapse animée, une notion par étape (ISRS, IRSNa, IMAO, mirtazapine, vortioxétine) ; les voies monoaminergiques en plan de lignes, sans croisement ; la matrice des affinités (27 molécules × 17 cibles) ; la titration de Téralithe LP 400 et la simulation de la lithiémie ; le délai d’action ; la boussole des thymorégulateurs. |
 | **Pharmacopée** | Les 36 molécules (24 antidépresseurs, lithium, anticonvulsivants, antipsychotiques de 2e génération), filtrables par profil ; une fiche pour chacune : AMM, posologie, effets indésirables, interactions, situations particulières, conseils pratiques, empreinte réceptorielle. |
 | **Histoire** | Dix-huit archives, de Cade (1949) à l’eskétamine, placées aussi dans le cours. |
@@ -23,7 +23,7 @@ Sources principales : Stahl, _Essential Psychopharmacology_ (4e éd., 2013) et _
   - **←** : reculer ; **Début** et **Fin** ; un numéro puis **Entrée** : aller à cette diapositive ;
   - **F** : plein écran ; **N** : notes ; **O** : vue d’ensemble ; **B** : écran noir ; **Échap** : retour à la lecture.
 - **Questions à la salle** : la question s’affiche, on laisse chercher, la réponse vient au clic suivant. Personne n’est interrogé, rien n’est compté, il n’y a pas de minuterie. Les trois questions d’ouverture ne sont pas corrigées sur le moment : on y revient en fin de séance.
-- **Révélation pas à pas** : sur les diapositives denses, les intitulés apparaissent d’abord et le contenu au clic suivant, pour pouvoir interroger la salle avant de montrer. Les animations (synapse, voies, titration du lithium) avancent elles aussi d’une étape par clic.
+- **Révélation pas à pas** : sur les diapositives denses, les intitulés apparaissent d’abord et le contenu au clic suivant, ou les étapes une à une, pour pouvoir interroger la salle avant de montrer. Les anecdotes historiques montrent d’abord la date, le lieu et le titre : le récit vient au clic suivant, le temps de le raconter. Les animations (synapse, voies, boussole, titration du lithium) avancent elles aussi d’une étape par clic.
 - **Après le cours** : la dernière diapositive affiche quatre codes QR (cartes de révision, cas et QRM, laboratoires, pharmacopée).
 - **Vue présentateur** (touche **P** en projection) : diapositive suivante, notes, minutage prévu et chronomètre ; elle pilote la projection. Les deux fenêtres doivent être ouvertes dans le même navigateur, sur le site en ligne ou sur un serveur local.
 - **Lien direct** : `…/#/diapo/synapse-isrs` (projection) ou `…/#/cours/synapse-isrs` (lecture). La page « Méthode » (lien en bas de page) résume les preuves pédagogiques et la façon d’animer.

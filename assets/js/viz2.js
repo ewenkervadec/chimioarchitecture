@@ -252,31 +252,144 @@ VIZ.delai = {
 };
 
 /* ───────── Boussole des thymorégulateurs ─────────
-   Axe vertical : manie en haut, dépression en bas. Pour chaque molécule : traiter (épisode aigu) et prévenir,
-   par le haut (manie) et par le bas (dépression), d’après CANMAT/ISBD 2018 (1re et 2e lignes) et l’AMM française. */
+   Axe vertical : manie en haut, dépression en bas, euthymie au centre (Stahl 2013, chap. 8). Quatre pièces sont posées
+   sur une grille de construction (carrés, cercles inscrits, médianes, diagonales). Chaque pièce est faite de cercles
+   reliés à leurs voisins : par des côtés droits (voisins orthogonaux) ou par des raccords concaves, qui suivent les cercles
+   vides d’à côté (voisins diagonaux). Traiter : un chevron qui part du pôle et pointe vers le centre ; prévenir : une barre
+   qui garde le centre. Plein : 1re ligne ; clair : 2e ligne ; pointillés : ni 1re ni 2e ligne (CANMAT/ISBD 2018). */
+function chainPath(cells, s, rho, ox, oy) {
+  const P = cells.map(([c, r]) => [ox + (c + .5) * s, oy + (r + .5) * s]), n = P.length, R = s - rho;
+  const f = v => +v.toFixed(2), pt = p => f(p[0]) + ' ' + f(p[1]);
+  if (n === 1) { const [x, y] = P[0]; return 'M' + f(x - rho) + ' ' + f(y) + 'a' + f(rho) + ' ' + f(rho) + ' 0 1 1 ' + f(2 * rho) + ' 0a' + f(rho) + ' ' + f(rho) + ' 0 1 1 ' + f(-2 * rho) + ' 0Z'; }
+  /* un côté (gauche ou droit, dans le sens de la chaîne) de la liaison k → k+1 */
+  const side = (k, left) => {
+    const [x0, y0] = P[k], [x1, y1] = P[k + 1], a = Math.sign(x1 - x0), b = Math.sign(y1 - y0);
+    if (!a || !b) { const nx = left ? b : -b, ny = left ? -a : a; return { p0: [x0 + rho * nx, y0 + rho * ny], p1: [x1 + rho * nx, y1 + rho * ny] }; }
+    const Q = left === (a * b > 0) ? [x0 + a * s, y0] : [x0, y0 + b * s];
+    return { Q, p0: [x0 + rho * (Q[0] - x0) / s, y0 + rho * (Q[1] - y0) / s], p1: [x1 + rho * (Q[0] - x1) / s, y1 + rho * (Q[1] - y1) / s] };
+  };
+  const L = [], Rt = [];
+  for (let k = 0; k < n - 1; k++) { L.push(side(k, true)); Rt.push(side(k, false)); }
+  /* arc convexe d’un cercle de la chaîne, dans le sens horaire ; les raccords concaves tournent dans l’autre sens */
+  const convex = (c, p, q) => {
+    let d = Math.atan2(q[1] - c[1], q[0] - c[0]) - Math.atan2(p[1] - c[1], p[0] - c[0]);
+    while (d < 0) d += 2 * Math.PI; while (d >= 2 * Math.PI) d -= 2 * Math.PI;
+    return d < 1e-4 || 2 * Math.PI - d < 1e-4 ? '' : 'A' + f(rho) + ' ' + f(rho) + ' 0 ' + (d > Math.PI ? 1 : 0) + ' 1 ' + pt(q);
+  };
+  const join = (j, to) => j.Q ? 'A' + f(R) + ' ' + f(R) + ' 0 0 0 ' + pt(to) : 'L' + pt(to);
+  let d = 'M' + pt(L[0].p0);
+  for (let k = 0; k < n - 1; k++) d += join(L[k], L[k].p1) + convex(P[k + 1], L[k].p1, k + 1 < n - 1 ? L[k + 1].p0 : Rt[k].p1);
+  for (let k = n - 2; k >= 0; k--) d += join(Rt[k], Rt[k].p0) + convex(P[k], Rt[k].p0, k > 0 ? Rt[k - 1].p1 : L[0].p0);
+  return d + 'Z';
+}
+/* la grille de construction : carrés, médianes, diagonales et cercles inscrits */
+function constructionGrid(C, Rw, s, gx, gy) {
+  let sq = '', fine = '';
+  for (let c = 0; c <= C; c++) sq += 'M' + (gx + c * s) + ' ' + gy + 'V' + (gy + Rw * s);
+  for (let r = 0; r <= Rw; r++) sq += 'M' + gx + ' ' + (gy + r * s) + 'H' + (gx + C * s);
+  for (let c = 0; c < C; c++) fine += 'M' + (gx + (c + .5) * s) + ' ' + gy + 'V' + (gy + Rw * s);
+  for (let r = 0; r < Rw; r++) fine += 'M' + gx + ' ' + (gy + (r + .5) * s) + 'H' + (gx + C * s);
+  for (let c = 0; c < C; c++) for (let r = 0; r < Rw; r++) {
+    const x = gx + c * s, y = gy + r * s, h = s / 2;
+    fine += 'M' + x + ' ' + y + 'l' + s + ' ' + s + 'M' + (x + s) + ' ' + y + 'l' + (-s) + ' ' + s;
+    fine += 'M' + (x + s) + ' ' + (y + h) + 'a' + h + ' ' + h + ' 0 1 1 ' + (-s) + ' 0a' + h + ' ' + h + ' 0 1 1 ' + s + ' 0';
+  }
+  return { sq, fine };
+}
+/* les quatre pièces, sur une grille de 9 × 9 : la composition occupe les colonnes 2 à 6 */
+const TH_PIECES = [
+  { k: 'tm', lab: 'traite la manie', side: -1, row: 1, hook: [3, 1], cells: [[2, 0], [3, 1], [4, 2], [5, 1], [6, 0]] },
+  { k: 'pm', lab: 'prévient la manie', side: 1, row: 3, hook: [5, 3], cells: [[3, 3], [4, 3], [5, 3]] },
+  { k: 'pd', lab: 'prévient la dépression', side: 1, row: 5, hook: [5, 5], cells: [[3, 5], [4, 5], [5, 5]] },
+  { k: 'td', lab: 'traite la dépression', side: -1, row: 7, hook: [3, 7], cells: [[2, 8], [3, 7], [4, 6], [5, 7], [6, 8]] }
+];
+const TH_LV = { 1: '1re ligne', 2: '2e ligne', 0: 'ni 1re ni 2e ligne' };
+/* « 1re », « 2e » : la terminaison en exposant, en SVG (tspan décalés) et en HTML */
+const supSvg = t => { const q = t.split(/(\d)(re|e)(?=\s|$)/); let o = esc(q[0]); for (let k = 1; k < q.length; k += 3) o += q[k] + '<tspan dy="-5" font-size="10">' + q[k + 1] + '</tspan><tspan dy="5">' + esc(q[k + 2]) + '</tspan>'; return o; };
+const supHtml = t => esc(t).replace(/(\d)(re|e)(?=\s|$)/g, '$1<sup>$2</sup>');
 VIZ.thymo = {
   html(cfg) {
     const A = D.thymo || [];
-    return '<div class="thymo"><div class="th-pick" role="group" aria-label="Molécule">' + A.map((a, i) => '<button type="button" data-th="' + i + '" aria-pressed="' + (i === 0) + '">' + esc(a.t) + '</button>').join('') + '</div><div class="th-grid"><svg class="th-svg" viewBox="0 0 520 440" role="img" aria-label="Actions par le haut et par le bas"></svg><div class="th-info" aria-live="polite"></div></div></div>';
+    return '<div class="thymo"><div class="th-pick" role="group" aria-label="Molécule">' + A.map((a, i) => '<button type="button" data-th="' + i + '" aria-pressed="false">' + esc(a.t) + '</button>').join('') + '</div><div class="th-grid"><svg class="th-svg" viewBox="0 0 700 556" role="img"></svg><div class="th-info" aria-live="polite"></div></div></div>';
   },
   mount(el, cfg) {
-    const root = $('.thymo', el), A = D.thymo || []; let i = cfg.i || 0;
-    const lv = v => v === 1 ? '1re ligne' : v === 2 ? '2e ligne' : v === 'amm' ? 'AMM' : '';
+    const root = $('.thymo', el), A = D.thymo || [], svg = $('.th-svg', root), deck = cfg.mode === 'deck';
+    const first = () => deck ? (cfg.i != null ? cfg.i : 0) : (cfg.i > 0 ? cfg.i : 0);
+    let i = first(); const prev = {};
+    const u = 'th' + Math.random().toString(36).slice(2, 7);
+    const s = 60, C = 9, Rw = 9, gx = 80, gy = 8, cx = gx + 4.5 * s, rho = s / 2 - 2.5;
+    const cc = (c, r) => [gx + (c + .5) * s, gy + (r + .5) * s];
+    /* la grille s’efface vers les bords, sous les étiquettes */
+    const defs = '<defs>' +
+      '<linearGradient id="' + u + 'g"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".25" stop-color="#fff"/><stop offset=".75" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>' +
+      '<mask id="' + u + 'f" maskUnits="userSpaceOnUse" x="' + gx + '" y="' + (gy - 1) + '" width="' + C * s + '" height="' + (Rw * s + 2) + '"><rect x="' + gx + '" y="' + (gy - 1) + '" width="' + C * s + '" height="' + (Rw * s + 2) + '" fill="url(#' + u + 'g)"/></mask>' +
+      '</defs>';
+    const G = constructionGrid(C, Rw, s, gx, gy);
+    let stat = defs + '<g class="th-cg" mask="url(#' + u + 'f)"><path class="th-cg2" d="' + G.fine + '"/><path class="th-cg1" d="' + G.sq + '"/></g>';
+    /* l’axe de l’humeur ; les deux pôles sont écrits dans l’ouverture des chevrons */
+    stat += '<line class="th-ax" x1="' + cx + '" x2="' + cx + '" y1="' + (gy + .5 * s + 16) + '" y2="' + (gy + 8.5 * s - 16) + '"/>';
+    stat += '<text class="th-pole" x="' + cx + '" y="' + (gy + .5 * s + 5) + '" text-anchor="middle" ' + F_MONO + '>MANIE</text><text class="th-pole" x="' + cx + '" y="' + (gy + 8.5 * s + 5) + '" text-anchor="middle" ' + F_MONO + '>DÉPRESSION</text>';
+    /* le centre : un disque de pierre, l’euthymie */
+    const [ex, ey] = cc(4, 4), lx0 = gx + 2 * s - 14, rx0 = gx + 7 * s + 14;
+    stat += '<g class="th-eu"><circle class="th-stone" cx="' + ex + '" cy="' + ey + '" r="' + rho + '"/><circle class="th-ring" cx="' + ex + '" cy="' + ey + '" r="' + (rho - 7) + '"/><circle class="th-dot" cx="' + ex + '" cy="' + ey + '" r="2.6"/>' +
+      '<line class="th-lead" x1="' + (lx0 + 8) + '" x2="' + (ex - rho - 5) + '" y1="' + ey + '" y2="' + ey + '"/><circle class="th-tip" cx="' + (ex - rho - 5) + '" cy="' + ey + '" r="2.4"/><text class="th-eut" x="' + lx0 + '" y="' + (ey + 6) + '" text-anchor="end" ' + F_SANS + '>euthymie</text></g>';
+    /* la légende, en bas à droite */
+    const ly = gy + 6.55 * s;
+    const sw = (k, y) => '<circle class="' + (k === 1 ? 'th-f1' : k === 2 ? 'th-f2' : 'th-ghost') + '" cx="' + (rx0 + 10) + '" cy="' + y + '" r="10"/>';
+    stat += '<g class="th-key">' + [[1, '1re ligne'], [2, '2e ligne'], [0, 'ni l’une ni l’autre']].map(([k, t], j) => sw(k, ly + j * 30) + '<text x="' + (rx0 + 30) + '" y="' + (ly + j * 30 + 5) + '" ' + F_SANS + '>' + supSvg(t) + '</text>').join('') +
+      '<text class="th-src" x="' + rx0 + '" y="' + (ly + 3 * 30 + 4) + '" ' + F_MONO + '>CANMAT/ISBD 2018</text></g>';
+    svg.innerHTML = stat + '<g class="th-pieces"></g><g class="th-labs"></g>';
+    const pieces = $('.th-pieces', svg), labs = $('.th-labs', svg);
+    const piece = (pc, v) => {
+      const out = chainPath(pc.cells, s, rho, gx, gy);
+      if (v === 1 || v === 2) return '<path class="th-f' + v + '" d="' + out + '"/>';
+      return '<path class="th-ghost" d="' + out + '"/>';
+    };
     const draw = () => {
-      const a = A[i]; const W = 520, H = 440, cx = 260;
-      let g = '<rect x="150" y="20" width="220" height="400" rx="110" class="th-cap"/><line x1="' + cx + '" x2="' + cx + '" y1="40" y2="400" class="th-ax"/><text x="' + cx + '" y="14" text-anchor="middle" class="th-pole" ' + F_MONO + '>MANIE</text><text x="' + cx + '" y="436" text-anchor="middle" class="th-pole" ' + F_MONO + '>DÉPRESSION</text><text x="' + (cx + 14) + '" y="224" class="th-eu" ' + F_SANS + '>euthymie</text>';
-      const arr = (y1, y2, x, v, lab, side) => { if (!v) return '<g class="th-a off"><line x1="' + x + '" x2="' + x + '" y1="' + y1 + '" y2="' + y2 + '"/><text x="' + (x + (side < 0 ? -12 : 12)) + '" y="' + ((y1 + y2) / 2) + '" text-anchor="' + (side < 0 ? 'end' : 'start') + '" ' + F_SANS + '>' + lab + '</text></g>'; const dir = y2 > y1 ? 1 : -1; return '<g class="th-a v' + v + '"><line x1="' + x + '" x2="' + x + '" y1="' + y1 + '" y2="' + y2 + '"/><path d="M' + (x - 8) + ' ' + (y2 - dir * 12) + ' L ' + x + ' ' + y2 + ' L ' + (x + 8) + ' ' + (y2 - dir * 12) + '" fill="none"/><text x="' + (x + (side < 0 ? -12 : 12)) + '" y="' + ((y1 + y2) / 2) + '" text-anchor="' + (side < 0 ? 'end' : 'start') + '" ' + F_SANS + '>' + lab + ' · ' + lv(v) + '</text></g>'; };
-      const bar = (y, v, lab) => '<g class="th-b' + (v ? ' v' + v : ' off') + '"><line x1="180" x2="340" y1="' + y + '" y2="' + y + '"/><text x="350" y="' + (y + 5) + '" ' + F_SANS + '>' + lab + (v ? ' · ' + lv(v) : '') + '</text></g>';
-      g += arr(40, 170, 200, a.tm, 'traite la manie', -1) + arr(400, 270, 200, a.td, 'traite la dépression', -1) + bar(120, a.pm, 'prévient la manie') + bar(320, a.pd, 'prévient la dépression');
-      $('.th-svg', root).innerHTML = g;
-      $('.th-info', root).innerHTML = '<span class="eyebrow">' + esc(a.cls || '') + '</span><h4>' + esc(a.t) + '</h4><p>' + md(a.p) + '</p>' + (a.fr ? '<p class="note"><b>AMM en France.</b> ' + md(a.fr) + '</p>' : '') + (a.mol ? '<p><span class="ilink k-mol" role="button" tabindex="0" data-pane="' + a.mol + '">Fiche de la molécule</span></p>' : '');
+      const a = A[i] || null;
+      pieces.innerHTML = TH_PIECES.map(pc => { const v = a ? a[pc.k] || 0 : 0, key = a ? v : 'x', chg = prev[pc.k] !== undefined && prev[pc.k] !== key; prev[pc.k] = key;
+        return '<g class="th-p lv' + key + (chg ? ' chg' : '') + '">' + piece(pc, v) + '</g>'; }).join('');
+      labs.innerHTML = TH_PIECES.map(pc => {
+        const v = a ? a[pc.k] || 0 : null, y = gy + (pc.row + .5) * s, left = pc.side < 0, x = left ? lx0 : rx0, an = left ? 'end' : 'start';
+        const [hx] = cc(pc.hook[0], pc.hook[1]), hx2 = left ? hx - rho - 5 : hx + rho + 5;
+        return '<g class="th-l lv' + (v === null ? 'x' : v) + '"><line class="th-lead" x1="' + (left ? lx0 + 8 : rx0 - 8) + '" x2="' + hx2 + '" y1="' + y + '" y2="' + y + '"/><circle class="th-tip" cx="' + hx2 + '" cy="' + y + '" r="2.4"/>' +
+          '<text class="th-la" x="' + x + '" y="' + (v === null ? y + 6 : y - 2) + '" text-anchor="' + an + '" ' + F_SANS + '>' + pc.lab + '</text>' +
+          (v === null ? '' : '<text class="th-lv" x="' + x + '" y="' + (y + 19) + '" text-anchor="' + an + '" ' + F_SANS + '>' + supSvg(TH_LV[v]) + '</text>') + '</g>';
+      }).join('');
+      svg.setAttribute('aria-label', a ? a.t + ' : ' + TH_PIECES.map(pc => pc.lab + ', ' + TH_LV[a[pc.k] || 0]).join(' ; ') : 'Boussole des thymorégulateurs : traiter et prévenir la manie, traiter et prévenir la dépression');
+      $('.th-info', root).innerHTML = a ? '<span class="eyebrow">' + esc(a.cls || '') + '</span><h4>' + esc(a.t) + '</h4><p>' + md(a.p) + '</p>' + (a.fr ? '<p class="note"><b>AMM en France.</b> ' + md(a.fr) + '</p>' : '') + (a.mol ? '<p><span class="ilink k-mol" role="button" tabindex="0" data-pane="' + a.mol + '">Fiche de la molécule</span></p>' : '') +
+          '<ul class="th-sum">' + TH_PIECES.map(pc => { const v = a[pc.k] || 0; return '<li class="lv' + v + '"><i aria-hidden="true"></i><span>' + pc.lab + '</span><b>' + supHtml(TH_LV[v]) + '</b></li>'; }).join('') + '</ul>'
+        : '<span class="eyebrow">Quatre questions</span><h4>Une molécule, quatre directions</h4><p>Traite-t-elle la manie ? la dépression ? Prévient-elle la manie ? la dépression ? Chaque pièce se remplit selon les lignes de traitement de CANMAT/ISBD 2018 : pleine pour la 1<sup>re</sup> ligne, claire pour la 2<sup>e</sup>, en pointillés au-delà.</p>';
       $$('[data-th]', root).forEach(b => b.setAttribute('aria-pressed', +b.dataset.th === i));
     };
     root.addEventListener('click', e => { const b = e.target.closest('[data-th]'); if (b) { i = +b.dataset.th; draw(); } });
     draw();
-    return { step(s) { let st = null; cfg.steps.forEach(x => { if (x.f <= s) st = x; }); i = st ? st.i : (cfg.i || 0); draw(); } };
+    return { step(st) { let x = null; cfg.steps.forEach(y => { if (y.f <= st) x = y; }); i = x ? x.i : first(); draw(); } };
   }
 };
+
+/* ───────── Illustrations de la diapositive « Des pistes » ─────────
+   Dans l’idée du logo : une tuile sombre aux angles très arrondis, un pictogramme blanc fait seulement de gélules
+   (traits épais à bouts ronds) et de points ; en noir et blanc, inversé en mode sombre comme le logo. Décoratives. */
+const ILL = {};
+(() => {
+  const tile = inner => '<svg class="ill" viewBox="0 0 100 100" width="100" height="100" aria-hidden="true" focusable="false"><rect x="2" y="2" width="96" height="96" rx="28" class="ill-bg"/>' + inner + '</svg>';
+  const cap = (x1, y1, x2, y2, w) => '<path d="M' + x1 + ' ' + y1 + 'L' + x2 + ' ' + y2 + '" class="ill-st" stroke-width="' + w + '"/>';
+  const dot = (x, y, r) => '<circle cx="' + x + '" cy="' + y + '" r="' + r + '" class="ill-fg"/>';
+  const P = (a, r) => { const t = (a - 90) * Math.PI / 180; return [+(50 + r * Math.cos(t)).toFixed(1), +(50 + r * Math.sin(t)).toFixed(1)]; };
+  /* pramipexole : une étincelle, l’élan retrouvé */
+  ILL.pramipexole = () => tile(dot(50, 50, 8.5) + [0, 90, 180, 270].map(a => { const [x1, y1] = P(a, 19), [x2, y2] = P(a, 32); return cap(x1, y1, x2, y2, 11); }).join('') +
+    [45, 135, 225, 315].map(a => { const [x, y] = P(a, 27); return dot(x, y, 5.5); }).join(''));
+  /* psilocybine : un champignon, deux spores */
+  ILL.psilocybine = () => tile('<path d="M19 55C19 35 33 22 50 22C67 22 81 35 81 55Q81 59 77 59H23Q19 59 19 55Z" class="ill-fg"/>' +
+    '<rect x="42.5" y="63" width="15" height="20" rx="7.5" class="ill-fg"/>' + dot(28, 70, 4.5) + dot(72, 70, 4.5));
+  /* psychostimulants : un œil grand ouvert */
+  ILL.psychostimulants = () => tile('<path d="M14 59Q50 27 86 59Q50 91 14 59Z" class="ill-fg"/><circle cx="50" cy="59" r="13.5" class="ill-bg"/>' + dot(50, 59, 5.5) +
+    cap(50, 14, 50, 24, 8) + cap(29, 20, 34, 28, 8) + cap(71, 20, 66, 28, 8));
+  /* dextrométhorphane-bupropion : le flacon de sirop et le comprimé */
+  ILL.dxmbupropion = () => tile('<rect x="36" y="17" width="17" height="11" rx="5.5" class="ill-fg"/><rect x="26" y="31" width="37" height="52" rx="13" class="ill-fg"/>' +
+    '<rect x="33" y="50" width="23" height="13" rx="6.5" class="ill-bg"/>' + dot(77, 72, 11.5) + '<path d="M70.5 72H83.5" class="ill-cut" stroke-width="3"/>');
+})();
 
 /* ───────── Pharmacopée en tuiles fusionnées (planche 4) ───────── */
 const FILTERS = [

@@ -46,6 +46,7 @@ D.slides.forEach(s => {
     if (b.objs) b.objs.forEach(o => { if (!O[o]) errs.push('objectif inconnu dans objs ' + o); });
     if (b.viz === 'empreintes') { (b.rows || []).forEach(r => { if (!D.binding.data[r]) errs.push('ligne d’affinités inconnue ' + r); }); (b.cols || []).forEach(c => { if (!D.binding.cols.some(x => x.id === c)) errs.push('colonne d’affinités inconnue ' + c); }); }
     if (b.fig && !['hyperbole', 'dimensions'].includes(b.fig)) errs.push('figure inconnue ' + b.fig);
+    if (b.cols) b.cols.forEach(c => { if (c.ill && !['pramipexole', 'psilocybine', 'psychostimulants', 'dxmbupropion'].includes(c.ill)) errs.push('illustration inconnue ' + c.ill + ' dans ' + s.id); });
   });
   if (!s.src && !['cover', 'section', 'pause'].includes(s.kind) && s.id !== 'objectifs' && s.id !== 'a-retenir' && s.id !== 'references') warns.push('diapositive sans source : ' + s.id);
 });

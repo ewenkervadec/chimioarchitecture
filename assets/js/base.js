@@ -132,13 +132,18 @@ const BLOCKS = {
   h: (b, ctx, F) => '<h4' + F + '>' + md(b.h) + '</h4>',
   ul: (b, ctx, F) => '<div' + F + '>' + ul(b.ul, ctx, b.step) + '</div>',
   ol: (b, ctx, F) => '<ol class="seq"' + F + '>' + b.ol.map(it => '<li' + ((ctx.mode === 'deck' && b.step) ? ' data-f="' + (++ctx.f) + '"' : '') + '>' + md(typeof it === 'string' ? it : it.t) + '</li>').join('') + '</ol>',
-  /* reveal: 'heads' (projection) : les titres d’abord, le contenu de chaque colonne au clic */
-  cols: (b, ctx, F) => '<div class="cols' + (b.k ? ' ' + b.k : '') + (b.reveal ? ' rv-' + b.reveal : '') + '"' + F + (b.min ? ' style="--min:' + b.min + 'em"' : '') + '>' + b.cols.map(c => {
+  /* reveal: 'heads' (projection) : les titres d’abord, le contenu de chaque colonne au clic ;
+     ill : une petite illustration sous la carte, qui apparaît avec son contenu */
+  cols: (b, ctx, F) => { const withIll = b.cols.some(c => c.ill); return '<div class="cols' + (b.k ? ' ' + b.k : '') + (b.reveal ? ' rv-' + b.reveal : '') + (withIll ? ' with-ill' : '') + '"' + F + (b.min ? ' style="--min:' + b.min + 'em"' : '') + '>' + b.cols.map(c => {
     const deck = ctx.mode === 'deck', heads = deck && b.reveal === 'heads';
     const f = (deck && b.step && !heads) ? ' data-f="' + (++ctx.f) + '"' : '';
+    const n = heads ? ++ctx.f : 0;
     const body = (c.p ? '<p>' + md(c.p) + '</p>' : '') + (c.ul ? ul(c.ul, ctx, false) : '') + (c.src ? '<span class="src">' + esc(c.src) + '</span>' : '');
-    return '<div class="col' + (c.k ? ' ' + c.k : '') + '"' + f + '>' + (c.tag ? '<span class="col-tag">' + md(c.tag) + '</span>' : '') + (c.h ? '<b class="col-h">' + md(c.h) + '</b>' : '') + (heads ? '<div class="col-b" data-f="' + (++ctx.f) + '">' + body + '</div>' : body) + '</div>';
-  }).join('') + '</div>',
+    const card = '<div class="col' + (c.k ? ' ' + c.k : '') + '"' + (withIll ? '' : f) + '>' + (c.tag ? '<span class="col-tag">' + md(c.tag) + '</span>' : '') + (c.h ? '<b class="col-h">' + md(c.h) + '</b>' : '') + (heads ? '<div class="col-b" data-f="' + n + '">' + body + '</div>' : body) + '</div>';
+    if (!withIll) return card;
+    const art = c.ill && typeof ILL !== 'undefined' && ILL[c.ill] ? '<figure class="col-ill"' + (heads ? ' data-f="' + n + '"' : '') + '>' + ILL[c.ill]() + '</figure>' : '';
+    return '<div class="col-w"' + f + '>' + card + art + '</div>';
+  }).join('') + '</div>'; },
   call: (b, ctx, F) => '<div class="call c-' + b.call + '"' + F + '><i>' + (b.lab || CALL[b.call] || '') + '</i><span>' + md(b.t) + '</span></div>',
   def: (b, ctx, F) => '<div class="def"' + F + '><b>' + md(b.def.t) + '</b><p>' + md(b.def.p) + '</p>' + (b.def.src ? '<span class="src">' + esc(b.def.src) + '</span>' : '') + '</div>',
   quote: (b, ctx, F) => '<figure class="pull"' + F + '><blockquote>' + md(b.quote) + '</blockquote>' + (b.who ? '<figcaption>' + md(b.who) + '</figcaption>' : '') + '</figure>',
@@ -156,7 +161,7 @@ const BLOCKS = {
   vote: (b, ctx) => voteHTML(b.vote, ctx, b),
   pair: (b, ctx, F) => pairHTML(b, ctx, F),
   predict: (b, ctx) => predictHTML(b, ctx),
-  hist: (b, ctx, F) => histCardHTML(b.hist, F, b),
+  hist: (b, ctx, F) => histCardHTML(b.hist, F, b, ctx),
   mols: (b, ctx, F) => '<div class="molchips"' + F + '>' + b.mols.map(id => molChip(id)).join('') + '</div>',
   formula: (b, ctx, F) => '<div class="formulas"' + F + '>' + b.formula.map(k => '<figure class="formula">' + molSVG(k, { w: b.w || 220 }) + '<figcaption>' + md(b.names && b.names[k] || (MOLS[k] ? MOLS[k].dci : k)) + '</figcaption></figure>').join('') + '</div>',
   qr: (b, ctx, F) => '<div class="qrbox"' + F + '>' + qrHTML(b) + '</div>',

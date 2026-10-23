@@ -138,6 +138,7 @@
 .ar-y{color:var(--night-ink)}
 .ar-body{display:flex;gap:1.2em;align-items:center}
 .ar-txt{min-width:0;flex:1;display:flex;flex-direction:column;gap:.45em}
+.ar-story{display:flex;flex-direction:column;gap:.45em}
 .archive h5{margin:0;font-family:var(--f-display);font-weight:700;font-size:1.3em;line-height:1.12;letter-spacing:-.01em;color:#fff;text-wrap:balance}
 .archive p{font-size:1em;line-height:1.5;color:var(--night-ink)}
 .archive .src{color:var(--night-lead)}
@@ -257,3 +258,15 @@
 .split{display:grid;grid-template-columns:minmax(0,1fr);gap:1.4em 2em;align-items:center}
 .split-c{display:flex;flex-direction:column;gap:.8em;min-width:0}
 .slide .split{grid-template-columns:minmax(0,var(--r,1.25fr)) minmax(0,1fr);flex:1;min-height:0}
+/* colonnes illustrées : la carte, puis sa petite illustration dessous */
+.cols.with-ill > .col-w{display:flex;flex-direction:column;gap:.55em;min-width:0}
+.cols.with-ill > .col-w > .col{flex:1}
+.col-ill{margin:0;display:flex;justify-content:center}
+.col-ill .ill{display:block;width:auto;height:5.4em;max-width:100%}
+/* dans l’idée du logo : tuile sombre, gélules et points blancs ; inversée en mode sombre, comme lui */
+.ill .ill-bg{fill:var(--logo-bg)} .ill .ill-fg{fill:var(--logo-fg)}
+.ill .ill-st{fill:none;stroke:var(--logo-fg);stroke-linecap:round}
+.ill .ill-cut{fill:none;stroke:var(--logo-bg);stroke-linecap:round}
+.col-ill .ill{filter:drop-shadow(0 6px 10px rgb(28 29 26 / .2))}
+:root[data-theme="dark"] .col-ill .ill{filter:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .col-ill .ill{filter:none}}

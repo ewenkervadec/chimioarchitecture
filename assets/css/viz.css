@@ -305,30 +305,57 @@ input[type=range]{accent-color:var(--ink);height:24px;cursor:pointer}
 .slide .delai-svg{flex:1;min-height:0;width:100%;height:auto}
 
 /* ——— Boussole des thymorégulateurs ——— */
-.thymo{display:flex;flex-direction:column;gap:12px;font-size:15px}
+.thymo{display:flex;flex-direction:column;gap:12px;font-size:15px;container-type:inline-size}
 .th-pick{display:flex;flex-wrap:wrap;gap:6px}
 .th-pick button{min-height:34px;padding:0 14px;border:0;border-radius:17px;background:var(--sunk);color:var(--ink-2);font-size:14px;font-weight:500;cursor:pointer}
 .th-pick button:hover{color:var(--ink);background:var(--rule)}
 .th-pick button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.th-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:center}
-@media (max-width:700px){.th-grid{grid-template-columns:minmax(0,1fr)}}
+.th-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:20px 28px;align-items:center}
+/* la figure passe au-dessus du texte dès que la place manque (colonne du cours, téléphone) */
+@container (max-width:760px){.th-grid{grid-template-columns:minmax(0,1fr)}}
+.thymo{--th-1:#7E9F35;--th-2:#D3DCBA;--th-2-l:#9DB063;--th-stone:#F7F6F1;--th-stone-l:#B9BAB1;--th-ghost:#8C8E85;--th-ghost-f:rgb(28 29 26 / .03);--th-cg:rgb(28 29 26 / .17);--th-cg2:rgb(28 29 26 / .07)}
+:root[data-theme="dark"] .thymo{--th-1:#86A83C;--th-2:#334023;--th-2-l:#6C8433;--th-stone:#262A23;--th-stone-l:#5E6358;--th-ghost:#7D8277;--th-ghost-f:rgb(236 237 230 / .025);--th-cg:rgb(236 237 230 / .13);--th-cg2:rgb(236 237 230 / .055)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .thymo{--th-1:#86A83C;--th-2:#334023;--th-2-l:#6C8433;--th-stone:#262A23;--th-stone-l:#5E6358;--th-ghost:#7D8277;--th-ghost-f:rgb(236 237 230 / .025);--th-cg:rgb(236 237 230 / .13);--th-cg2:rgb(236 237 230 / .055)}}
 .th-svg{display:block;width:100%;height:auto;overflow:visible}
-.th-svg .th-cap{fill:var(--paper-2);stroke:var(--line);stroke-width:1.2;stroke-dasharray:2 5;stroke-linecap:round}
-.th-svg .th-ax{stroke:var(--ink);stroke-width:1.2}
-.th-svg .th-pole{font-size:12px;letter-spacing:.2em;fill:var(--lead)}
-.th-svg .th-eu{font-size:13px;font-style:italic;fill:var(--lead)}
-.th-svg .th-a line,.th-svg .th-a path,.th-svg .th-b line{stroke:var(--ink);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
-.th-svg .th-a text,.th-svg .th-b text{font-size:14px;fill:var(--ink);stroke:none}
-.th-svg .v2 line,.th-svg .v2 path{stroke-width:2.6;stroke:var(--ink-2)}
-.th-svg .vamm line,.th-svg .vamm path{stroke:var(--moss);stroke-width:3}
-.th-svg .off line{stroke:var(--line);stroke-width:1.4;stroke-dasharray:2 6}
-.th-svg .off text{fill:var(--faint)}
+.th-svg .th-cg1{fill:none;stroke:var(--th-cg);stroke-width:.8}
+.th-svg .th-cg2{fill:none;stroke:var(--th-cg2);stroke-width:.7}
+.th-svg .th-ax{stroke:var(--ink);stroke-width:1.1;opacity:.4}
+.th-svg .th-pole{font-size:13px;letter-spacing:.32em;fill:var(--ink-2);paint-order:stroke;stroke:var(--paper);stroke-width:6px;stroke-linejoin:round}
+.th-svg .th-f1{fill:var(--th-1)}
+.th-svg .th-f2{fill:var(--th-2);stroke:var(--th-2-l);stroke-width:1.3}
+.th-svg .th-stone{fill:var(--th-stone);stroke:var(--th-stone-l);stroke-width:1}
+.th-svg .th-ghost{fill:var(--th-ghost-f);stroke:var(--th-ghost);stroke-width:1.5;stroke-dasharray:.1 5.2;stroke-linecap:round}
+.th-svg .th-ring{fill:none;stroke:var(--th-stone-l);stroke-width:.9}
+.th-svg .th-dot,.th-svg .th-tip{fill:var(--ink)}
+.th-svg .th-lead{stroke:var(--ink);stroke-width:.9;opacity:.5}
+.th-svg .th-la{font-size:18px;font-weight:500;fill:var(--ink)}
+.th-svg .th-lv{font-size:15px;fill:var(--lead)}
+.th-svg .lv1 .th-lv{fill:var(--ink)}
+.th-svg .lv0 .th-la,.th-svg .lv0 .th-lv,.th-svg .lvx .th-la{fill:var(--faint)}
+.th-svg .lv0 .th-lead,.th-svg .lv0 .th-tip,.th-svg .lvx .th-lead,.th-svg .lvx .th-tip{opacity:.28}
+.th-svg .th-eut{font-size:16px;font-style:italic;fill:var(--ink-2)}
+.th-svg .th-key text{font-size:14.5px;fill:var(--ink-2)}
+.th-svg .th-key .th-src{font-size:11px;letter-spacing:.14em;fill:var(--faint)}
+.th-p{transform-box:fill-box;transform-origin:center}
+.th-p.chg{animation:thIn .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes thIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.th-p.chg{animation:none}}
+.thymo .th-sum{display:none;list-style:none;margin:2px 0 0;padding:0;gap:7px}
+.thymo .th-sum li{display:grid;grid-template-columns:16px minmax(0,1fr) auto;gap:10px;align-items:center;line-height:1.3;padding-left:0}
+.thymo .th-sum li::before{content:none}
+.th-sum i{width:14px;height:14px;border-radius:50%}
+.th-sum .lv1 i{background:var(--th-1)}
+.th-sum .lv2 i{background:var(--th-2);box-shadow:inset 0 0 0 1.3px var(--th-2-l)}
+.th-sum .lv0 i{box-shadow:inset 0 0 0 1.5px var(--th-ghost)}
+.th-sum b{font-weight:500;color:var(--lead);font-size:.88em;text-align:right}
+@container (max-width:520px){.thymo .th-sum{display:grid}}
 .th-info{display:flex;flex-direction:column;gap:8px}
 .th-info h4{margin:0;font-family:var(--f-display);font-weight:700;font-size:26px;line-height:1.08}
 .th-info p{margin:0;line-height:1.5}
 .slide .thymo{font-size:17px;flex:1;min-height:0}
-.slide .th-grid{flex:1;min-height:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-.slide .th-svg{height:100%;max-height:560px;width:auto;max-width:100%;justify-self:center}
+.slide .th-grid{flex:1;min-height:0;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:28px}
+.slide .th-svg{height:100%;max-height:575px;width:auto;max-width:100%;justify-self:center}
+.slide .thymo .th-sum{display:none}
 .slide .th-info h4{font-size:34px}
 
 /* ——— Pharmacopée en tuiles fusionnées (affiche QRCODE) ——— */

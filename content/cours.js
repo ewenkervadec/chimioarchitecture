@@ -15,8 +15,8 @@ C.site = {
   id: 'humeur',
   title1: 'Chimioarchitecture',
   title2: 'de l’humeur',
-  short: 'Antidépresseurs et thymorégulateurs, de la synapse à l’ordonnance',
-  kicker: 'Cours pour les internes de psychiatrie · 2 heures',
+  short: 'Antidépresseurs et thymorégulateurs : petit précis de psychopharmacologie',
+  kicker: 'Cours pour les internes de psychiatrie',
   author: 'Dr Ewen Kervadec',
   authorShort: 'E. Kervadec',
   role: 'CCA, Département de psychiatrie et d’addictologie, Hôpital universitaire Paul-Brousse',
@@ -25,11 +25,12 @@ C.site = {
   year: '2026',
   /* Photographie de couverture : un banc de marbre gravé de sillons remplis de mousse (image fournie par l’auteur). */
   cover: { img: 'assets/img/couverture.jpg', wide: 'assets/img/couverture-16x9.jpg', alt: 'Banc de marbre gravé d’un labyrinthe de sillons remplis de mousse' },
-  lede: 'Pourquoi un médicament qui bloque un transporteur en quelques heures soigne une dépression en quelques semaines ; pourquoi la lithiémie se prélève le matin ; comment choisir, ajuster, associer et arrêter. Un cours à projeter et à manipuler, de la synapse à l’ordonnance.',
+  lede: 'Pourquoi un médicament qui bloque un transporteur en quelques heures soigne une dépression en quelques semaines ; pourquoi la lithiémie se prélève le matin ; comment choisir, ajuster, associer et arrêter.',
   duration: 120,
-  session: 'Le cours alterne des séquences courtes et des questions à la salle : trois questions d’ouverture, des prédictions avant chaque animation, un cas clinique, et un retour sur les questions du début. Chacun y répond pour soi, ou à voix haute s’il le souhaite : personne n’est interrogé, rien n’est compté, et la réponse vient au clic suivant.',
+  sessionTitle: 'Un cours interactif',
+  session: 'Les questions sont bienvenues à tout moment : posez-les au fur et à mesure, sans attendre la fin. Le cours alterne des séquences courtes, des schémas dynamiques (le cerveau, la synapse, la boussole thymique, la pharmacocinétique du lithium) et quelques questions à la salle : trois questions d’ouverture, des questions flash, et un retour sur les questions du début.',
   asof: 'octobre 2026',
-  version: 'Version du 22 octobre 2026',
+  version: 'Version du 23 octobre 2026',
   pharmaIntro: 'Les antidépresseurs et les thymorégulateurs disponibles en France, rangés par mécanisme selon la nomenclature NbN (ANSM et RCP, état d’octobre 2026). Filtre par profil, puis ouvre une fiche : indications de l’AMM, posologie, effets indésirables, interactions, situations particulières et conseils pratiques.',
   histIntro: 'Presque tous les antidépresseurs et thymorégulateurs ont été trouvés par hasard, en cherchant autre chose : un antituberculeux, un antihistaminique, un solvant, un sel d’urate. Les mécanismes ont été compris après coup, et l’hypothèse monoaminergique s’est construite à partir de ces découvertes.',
   sources: [
@@ -50,8 +51,8 @@ C.sisters = [];
 C.chapters = [
   { id: 'ouv', n: '00', t: 'Ouverture', mins: 8, emblem: 'hourglass', sub: 'Une histoire, trois questions, un plan.' },
   { id: 'chimio', n: '01', t: 'Chimioarchitecture', mins: 21, emblem: 'funnel', sub: 'Trois monoamines, une poignée de noyaux, presque tout le cerveau.' },
-  { id: 'ad', n: '02', t: 'Antidépresseurs', mins: 30, emblem: 'loop', sub: 'Un délai d’action, dix mécanismes, vingt-quatre molécules.' },
-  { id: 'thymo', n: '03', t: 'Thymorégulateurs', mins: 25, emblem: 'spiral', sub: 'Traiter et prévenir, par le haut et par le bas.' },
+  { id: 'ad', n: '02', t: 'Antidépresseurs', mins: 29, emblem: 'loop', sub: 'Un délai d’action, dix mécanismes, vingt-quatre molécules.' },
+  { id: 'thymo', n: '03', t: 'Thymorégulateurs', mins: 26, emblem: 'spiral', sub: 'Traiter et prévenir, par le haut et par le bas.' },
   { id: 'strat', n: '04', t: 'Stratégies', mins: 24, emblem: 'arch', sub: 'Choisir, suivre, changer, associer, arrêter.' },
   { id: 'clot', n: '05', t: 'Clôture', mins: 7, emblem: 'grid', sub: 'Répondre, retenir, revenir.' }
 ];
@@ -89,9 +90,9 @@ C.tileGroups = [
 C.plan = [
   { from: 0, to: 8, t: 'Ouverture', m: 'Une histoire de 1952 et trois questions laissées en suspens.', sid: 'couverture' },
   { from: 8, to: 29, t: 'Chimioarchitecture', m: 'La vie d’une monoamine, les voies, les récepteurs, les affinités.', sid: 'sec-chimio' },
-  { from: 29, to: 59, t: 'Antidépresseurs', m: 'Le délai d’action sur la synapse animée, les classes une à une, dix mécanismes, l’échelle de Hamilton.', sid: 'sec-ad' },
-  { from: 59, to: 64, t: 'Pause', m: 'Cinq minutes ; la synapse reste en ligne.', sid: 'pause' },
-  { from: 64, to: 89, t: 'Thymorégulateurs', m: 'La boussole, le lithium (titration et lithiémie), les anticonvulsivants, les antipsychotiques.', sid: 'sec-thymo' },
+  { from: 29, to: 58, t: 'Antidépresseurs', m: 'Le délai d’action sur la synapse animée, les classes une à une, dix mécanismes, l’échelle de Hamilton.', sid: 'sec-ad' },
+  { from: 58, to: 63, t: 'Pause', m: 'Cinq minutes ; la synapse reste en ligne.', sid: 'pause' },
+  { from: 63, to: 89, t: 'Thymorégulateurs', m: 'La boussole, le lithium (titration et lithiémie), les anticonvulsivants, les antipsychotiques.', sid: 'sec-thymo' },
   { from: 89, to: 113, t: 'Stratégies', m: 'Choisir selon la dimension et la forme clinique, suivre, changer, associer, arrêter ; les situations particulières.', sid: 'sec-strat' },
   { from: 113, to: 120, t: 'Clôture', m: 'Les trois questions du début, sept messages, des codes QR pour revenir.', sid: 'post-delai' }
 ];
@@ -103,7 +104,7 @@ C.labs = {
   empreintes: { p: 'Une ligne par molécule, une colonne par cible ; plus la pastille est grosse, plus l’affinité est forte (Ki petit). Survole une pastille pour lire la valeur, clique sur une colonne pour voir ce qu’entraîne l’action sur cette cible.', sids: ['affinite', 'imipraminiques'] },
   lithiemie: { p: 'Deux simulations à un compartiment chez une adulte de 70 kg (DFG 75 mL/min par défaut). D’abord la titration de Téralithe LP 400, semaine par semaine. Puis la marge étroite : choisis la forme, le nombre de comprimés et la fonction rénale, et ajoute à J10 un AINS, un thiazidique, un IEC, une gastro-entérite ou un régime sans sel. Point blanc : prélèvement du matin, 12 h après la prise du soir ; point noir : prélèvement du soir, 24 h après la prise, juste avant la suivante (forme LP).', sids: ['lithium-pratique', 'lithium-titration', 'lithium-simulateur'] },
   delai: { p: 'Ce que la clinique montre des huit premières semaines : l’occupation du transporteur est presque immédiate, les effets indésirables viennent d’abord, l’amélioration ensuite. D’où les rendez-vous de S1–S2, le repère de S2 et l’évaluation de S4–S8.', sids: ['delai-clinique', 'suivre'] },
-  thymo: { p: 'Stahl range les thymorégulateurs selon qu’ils traitent ou préviennent « par le haut » (la manie) ou « par le bas » (la dépression). Les flèches suivent les lignes de traitement de CANMAT/ISBD 2018 ; l’AMM française est indiquée à côté.', sids: ['boussole', 'apa2g'] }
+  thymo: { p: 'Stahl range les thymorégulateurs selon qu’ils traitent ou préviennent « par le haut » (la manie) ou « par le bas » (la dépression). Chaque pièce se remplit selon les lignes de traitement de CANMAT/ISBD 2018 : pleine pour la 1re ligne, claire pour la 2e, en pointillés au-delà ; l’AMM française est indiquée à côté.', sids: ['boussole', 'apa2g'] }
 };
 
 /* ─── binding ─── */
@@ -1350,8 +1351,8 @@ C.slides.push(
 
 /* ───────── 00 · Ouverture ───────── */
 { id: 'couverture', ch: 'ouv', kind: 'cover', t: 'Chimioarchitecture de l’humeur', short: 'Couverture', mins: 1,
-  sub: 'Antidépresseurs et thymorégulateurs : des récepteurs à la prescription',
-  notes: 'Se présenter. Annoncer le déroulé : deux heures, des questions posées à la salle en chemin. Chacun y répond pour soi, ou à voix haute s’il le souhaite ; personne n’est interrogé et l’on ne compte rien. Tout est en ligne : diapositives, fiches des molécules, cartes de révision.' },
+  sub: 'Antidépresseurs et thymorégulateurs : petit précis de psychopharmacologie',
+  notes: 'Se présenter. Annoncer le déroulé (deux heures, pause comprise) et inviter la salle à poser ses questions au fil du cours. Tout est en ligne : diapositives, fiches des molécules, cartes de révision.' },
 
 { id: 'sea-view', ch: 'ouv', t: 'Staten Island, 1952 : on danse dans les couloirs', short: 'Sea View, 1952', mins: 2,
   b: [
@@ -1383,14 +1384,14 @@ C.slides.push(
 { id: 'contrat', ch: 'ouv', t: 'Comment on va travailler', short: 'Le contrat', mins: 1,
   b: [
     { cols: [
-      { tag: 'Réfléchir', h: 'Des questions en chemin', p: 'Environ toutes les dix minutes, une question à la salle. On y répond pour soi, ou à voix haute si l’on veut ; personne n’est interrogé.' },
-      { tag: 'Prédire', h: 'Avant de voir', p: 'Sur la synapse animée et sur la lithiémie : on prédit, on observe, on explique.' },
+      { tag: 'Échanger', h: 'Un cours interactif', p: 'Posez vos questions au fur et à mesure : interrompez-moi dès qu’un point n’est pas clair.' },
+      { tag: 'Voir', h: 'Schémas dynamiques', p: 'Le cerveau, la synapse, la boussole thymique, la pharmacocinétique du lithium.' },
       { tag: 'Revenir', h: 'Après le cours', p: 'Les diapositives, les fiches des 36 molécules et les cartes de révision espacée restent en ligne.' }
     ], reveal: 'heads' },
     { qr: true, lab: 'Le site du cours', t: 'Diapositives, fiches et cartes de révision', w: 190, f: true }
   ],
   more: [{ p: 'La méthode et ses preuves : apprentissage actif, questions d’ouverture, prédictions, révision espacée.' }, { cta: [{ l: 'La méthode pédagogique', href: '#/methode' }] }],
-  notes: 'Dire pourquoi : l’apprentissage actif réduit le taux d’échec d’un tiers environ par rapport au cours magistral (Freeman 2014), même si l’on a l’impression d’apprendre moins (Deslauriers 2019). Rassurer : il suffit de chercher la réponse dans sa tête, c’est l’effort de récupération qui compte. Laisser le QR code affiché quelques secondes.',
+  notes: 'Inviter à interrompre : les questions sont bienvenues à tout moment, c’est ce qui rend le cours interactif. Les schémas avancent au clic, on peut s’arrêter sur chaque étape. Dire pourquoi : l’apprentissage actif réduit le taux d’échec d’un tiers environ par rapport au cours magistral (Freeman 2014), même si l’on a l’impression d’apprendre moins (Deslauriers 2019). Laisser le QR code affiché quelques secondes.',
   src: 'Freeman et al. 2014 ; Deslauriers et al. 2019' },
 
 /* ───────── 01 · Chimioarchitecture ───────── */
@@ -1530,7 +1531,7 @@ C.slides.push(
 { id: 'sec-ad', ch: 'ad', kind: 'section', t: 'Antidépresseurs', short: 'Antidépresseurs', mins: 0.5,
   sub: 'Un délai d’action, dix mécanismes, vingt-quatre molécules.' },
 
-{ id: 'pharmacopee-ad', ch: 'ad', t: 'Vingt-quatre antidépresseurs en France, rangés par mécanisme', short: 'La pharmacopée', mins: 1, obj: ['O5'],
+{ id: 'pharmacopee-ad', ch: 'ad', t: 'Vingt-quatre antidépresseurs en France, rangés par mécanisme', short: 'La pharmacopée', mins: 1.5, obj: ['O5'],
   b: [{ viz: 'tiles', groups: ['isrs', 'irsna', 'atc', 'imao', 'a2', 'autre'] }],
   more: [
     { p: 'La [[nbn|nomenclature NbN]] (_Neuroscience-based Nomenclature_) nomme un médicament par sa cible et son mode d’action, plutôt que par sa première indication : « inhibiteur de la recapture de la sérotonine » plutôt qu’« antidépresseur », puisque la plupart de ces molécules traitent aussi l’anxiété, le TOC ou la douleur.' },
@@ -1618,7 +1619,7 @@ C.slides.push(
   notes: 'Faire le lien avec la diapositive « les monoamines se freinent » : bloquer le NET augmente aussi la dopamine du cortex préfrontal. Question : « un patient sous venlafaxine 75 mg/j est-il sous IRSNa ? » Pas vraiment.',
   src: 'Wikipédia (Tatsumi 1997) ; RCP Effexor LP, Cymbalta ; Stahl 2013, fig. 7-30 à 7-34' },
 
-{ id: 'kuhn', ch: 'ad', t: 'Münsterlingen, 1957 : douze personnes dans la salle', short: 'Kuhn et l’imipramine', mins: 1,
+{ id: 'kuhn', ch: 'ad', t: 'Münsterlingen, 1957 : douze personnes dans la salle', short: 'Kuhn et l’imipramine', mins: 1.5,
   b: [{ hist: 'h-kuhn' }, { hist: 'h-testfall', f: true }],
   more: [
     { formula: ['chlorpromazine', 'imipramine'], names: { chlorpromazine: 'chlorpromazine', imipramine: 'imipramine' }, w: 230 },
@@ -1684,7 +1685,7 @@ C.slides.push(
   notes: 'L’agomélatine illustre le frein 5-HT2C : en le bloquant, elle libère dopamine et noradrénaline dans le cortex préfrontal, sans ajouter de sérotonine. La tianeptine montre qu’un mécanisme « admis » peut être faux pendant des décennies.',
   src: 'RCP Brintellix, Valdoxan, Stablon ; HAS 2017 ; Gassaway et al. 2014' },
 
-{ id: 'dix-mecanismes', ch: 'ad', t: 'Dix mécanismes, une seule logique : bloquer une sortie ou lever un frein', short: 'Dix mécanismes', mins: 2, obj: ['O5'],
+{ id: 'dix-mecanismes', ch: 'ad', t: 'Dix mécanismes, une seule logique : bloquer une sortie ou lever un frein', short: 'Dix mécanismes', mins: 2.5, obj: ['O5'],
   b: [
     { table: { head: ['Mécanisme', 'Ce qui augmente', 'En France'], rows: [
       ['Inhibition du [[sert|SERT]]', 'sérotonine', 'ISRS, IRSNa, imipraminiques, vortioxétine'],
@@ -1704,7 +1705,7 @@ C.slides.push(
   notes: 'Les mécanismes s’affichent seuls : pour chaque ligne, demander à la salle ce que cela augmente et quelles molécules l’utilisent, avant de révéler. Message final : on associe des mécanismes, pas des molécules ; deux ISRS ensemble n’ajoutent rien.',
   src: 'Stahl 2013, chap. 7 ; Rabu 2022 (DU de pharmaco-psychiatrie)' },
 
-{ id: 'esketamine', ch: 'ad', t: 'Eskétamine et kétamine : un effet en quelques heures, sous conditions', short: 'Eskétamine et kétamine', mins: 2, obj: ['O5', 'O8'],
+{ id: 'esketamine', ch: 'ad', t: 'Eskétamine et kétamine : un effet en quelques heures, sous conditions', short: 'Eskétamine et kétamine', mins: 2.5, obj: ['O5', 'O8'],
   b: [
     { cols: [
       { k: 's-glu', tag: 'mécanisme', h: 'Antagoniste NMDA', p: 'Bouffée de glutamate → récepteurs AMPA → BDNF et synaptogenèse (hypothèse).' },
@@ -1758,20 +1759,6 @@ C.slides.push(
   notes: 'Une minute d’histoire et d’esprit critique. Hamilton était à la fois psychiatre et statisticien ; son échelle est devenue l’étalon des essais. Demander : « quels symptômes une échelle de dépression devrait-elle mesurer ? », puis montrer le poids du sommeil et de l’anxiété dans la HAM-D.',
   src: 'Hamilton, J Neurol Neurosurg Psychiatry 1960 ; Bagby et al., Am J Psychiatry 2004 ; Montgomery et Åsberg 1979' },
 
-{ id: 'cas-choix', ch: 'ad', t: 'Cas : quel antidépresseur pour Mme L. ?', short: 'Cas : Mme L.', mins: 3, obj: ['O5', 'O10'],
-  b: [{ pair: { q: 'Mme L., 74 ans, épisode dépressif caractérisé d’intensité modérée. Insomnie, perte de 5 kg en deux mois. Fibrillation atriale sous apixaban ; diurétique thiazidique. Natrémie 134 mmol/L. **Quel antidépresseur, à quelle dose, et que surveillez-vous ?**', lab: 'Cas à discuter avec la salle' } }],
-  more: [
-    { h: 'Éléments de réponse' },
-    { ul: [
-      'Une option cohérente : {{mirtazapine}} 7,5 à 15 mg le soir (sommeil, appétit), en surveillant la sédation, les chutes et le poids.',
-      'Un ISRS reste possible ({{sertraline}}, {{escitalopram}} ≤ 10 mg/j), mais il cumule deux risques ici : saignements avec l’anticoagulant, [[hyponatremie|hyponatrémie]] avec le thiazidique.',
-      'À éviter : les imipraminiques (effets anticholinergiques, hypotension, chutes), le citalopram au-delà de 20 mg/j (QT).',
-      'Surveiller : natrémie dans les premières semaines sous ISRS, tolérance à S1–S2, réponse entre S6 et S12 chez le sujet âgé.'
-    ] }
-  ],
-  notes: 'Lire le cas, laisser une à deux minutes de réflexion, puis prendre les propositions de ceux qui veulent et laisser défendre deux options. Le but n’est pas « la » bonne réponse, mais la démarche : profil de symptômes, comorbidités, interactions, risques propres au patient. Faire nommer les risques avant les molécules.',
-  src: 'HAS 2017 ; RCP Norset, Zoloft, Seroplex ; OMéDIT Normandie' },
-
 { id: 'pause', ch: 'ad', kind: 'pause', t: 'Pause · cinq minutes', short: 'Pause', mins: 5,
   b: [{ p: 'Pendant la pause, la synapse est en ligne : choisissez une molécule et avancez étape par étape.' }, { qr: true, lab: 'Laboratoires', t: 'La synapse, les voies, les empreintes, la lithiémie', hash: '#/labos', w: 170 }],
   notes: 'Laisser la vue présentateur ouverte ; reprendre à l’heure. Au retour : « par le haut, par le bas ».' }
@@ -1784,13 +1771,13 @@ C.slides.push(
 { id: 'sec-thymo', ch: 'thymo', kind: 'section', t: 'Thymorégulateurs', short: 'Thymorégulateurs', mins: 0.5,
   sub: 'Traiter et prévenir, par le haut et par le bas.' },
 
-{ id: 'boussole', ch: 'thymo', t: 'Par le haut, par le bas : la boussole des thymorégulateurs', short: 'La boussole', mins: 2, obj: ['O7'],
-  b: [{ viz: 'thymo', steps: [{ i: 0 }, { i: 1 }, { i: 3 }, { i: 2 }, { i: 5 }] }],
+{ id: 'boussole', ch: 'thymo', t: 'Par le haut, par le bas : la boussole des thymorégulateurs', short: 'La boussole', mins: 3, obj: ['O7'],
+  b: [{ viz: 'thymo', i: -1, steps: [{ i: 0 }, { i: 1 }, { i: 2 }, { i: 3 }, { i: 5 }] }],
   more: [
     { p: 'Stahl distingue les médicaments qui traitent et préviennent « par le haut » (la [[manie]]) de ceux qui le font « par le bas » (la [[depression-bipolaire|dépression bipolaire]]). Peu de molécules couvrent les quatre directions : le lithium et la quétiapine. La [[polarite-predominante|polarité prédominante]] du patient oriente donc le traitement de fond.' },
     { cta: [{ l: 'Explorer la boussole', href: '#/labos/thymo' }] }
   ],
-  notes: 'Lire chaque molécule dans le même ordre : traite la manie ? la dépression ? prévient la manie ? la dépression ? Le lithium et la quétiapine font tout ; la lamotrigine travaille « par le bas » (pas d’effet dans la manie) ; l’aripiprazole « par le haut ». Message : un thymorégulateur se choisit selon la polarité du patient.',
+  notes: 'Premier écran : les quatre pièces vides. Les chevrons partent des pôles vers le centre (traiter l’épisode) ; les barres gardent l’euthymie (prévenir la récidive). Puis, au clic : lithium, quétiapine, divalproate, lamotrigine, aripiprazole. Lire chaque molécule dans le même ordre : traite la manie ? la dépression ? prévient la manie ? la dépression ? Le lithium et la quétiapine font tout ; la lamotrigine travaille « par le bas » (pas d’effet dans la manie) ; l’aripiprazole « par le haut ». Message : un thymorégulateur se choisit selon la polarité du patient.',
   src: 'Stahl 2013, chap. 8, fig. 8-1 et 8-2 ; Yatham et al. 2018 (CANMAT/ISBD)' },
 
 { id: 'cade', ch: 'thymo', t: 'Bundoora, 1949 : des cobayes, de l’urine et du lithium', short: 'Cade et Schou', mins: 1.5,
@@ -1819,12 +1806,12 @@ C.slides.push(
     { t: 'Doser', p: 'À l’équilibre, 5 à 7 jours après tout changement. LI : le matin, 12 h après la dernière prise, cible 0,5–0,8 mEq/L. LP : le matin (12 h après la prise) 0,8–1,2, ou le soir (24 h, juste avant la prise) 0,5–0,8.' },
     { t: 'Surveiller', p: 'Lithiémie deux fois par semaine au début, chaque semaine le premier mois, chaque mois le premier trimestre, puis tous les deux mois ; rein, calcémie et TSH régulièrement.' },
     { t: 'Expliquer', p: 'Les signes de surdosage, boire normalement, éviter les AINS, consulter en cas de fièvre, diarrhée ou vomissements.' }
-  ], reveal: 'heads' }],
+  ], step: true }],
   more: [
     { p: 'L’ISBD propose une cible d’entretien de 0,60–0,80 mmol/L, plutôt 0,40–0,60 chez le sujet âgé ; 0,80–1,00 si la réponse est insuffisante et la tolérance bonne (Nolen et al. 2019). Une [[lithiemie]] n’est interprétable que si l’on connaît l’heure de la dernière prise.' },
     { mols: ['lithium'] }
   ],
-  notes: 'Les cinq intitulés d’abord : demander à la salle ce qu’elle mettrait dans chaque temps avant de révéler. L’erreur la plus fréquente : doser la lithiémie trop tôt après la prise, ou sans connaître l’heure. Le RCP envisage l’arrêt si la clairance passe sous 40 mL/min ou décline rapidement.',
+  notes: 'Un temps par clic : avant chaque clic, demander à la salle ce qu’elle mettrait dans le temps suivant (bilan avant, démarrer, doser, surveiller, expliquer). L’erreur la plus fréquente : doser la lithiémie trop tôt après la prise, ou sans connaître l’heure. Le RCP envisage l’arrêt si la clairance passe sous 40 mL/min ou décline rapidement.',
   src: 'RCP Téralithe 250 (2025) et LP 400 ; Nolen et al. 2019' },
 
 { id: 'lithium-titration', ch: 'thymo', t: 'Introduire le lithium : la titration de Téralithe LP 400', short: 'Titrer le lithium', mins: 2.5, obj: ['O6'],
@@ -2037,14 +2024,14 @@ C.slides.push(
 { id: 'pistes', ch: 'strat', lvl: 'plus', t: 'Et ensuite ? Des pistes, pas encore des recommandations', short: 'Les pistes', mins: 0.5, obj: ['O8'],
   b: [
     { cols: [
-      { tag: 'agoniste D2/D3', h: 'Pramipexole', p: 'Pour l’anhédonie et le ralentissement. Essai PAX-D (2025), en association dans la dépression résistante : 44 % de réponse à 12 semaines, contre 16 % sous placebo ; un patient sur cinq arrête pour nausées, troubles du sommeil ou vertiges. Surveiller l’impulsivité.' },
-      { tag: 'agoniste 5-HT2A', h: 'Psilocybine', p: 'Une ou deux séances encadrées : 3,6 à 3,8 points de MADRS de plus que le contrôle à 6 semaines, dans deux essais de phase 3 (2025–2026). Demande d’autorisation en cours aux États-Unis ; prescrite en Australie depuis 2023 ; en France, seulement en recherche.' },
-      { tag: 'psychostimulants', h: 'Méthylphénidate, modafinil', p: 'Fatigue, apathie, hypersomnie : un effet à court terme des psychostimulants oraux, dans des essais petits et de faible qualité ; pas d’effet démontré du modafinil sur la dépression (Cochrane 2008).' },
-      { tag: 'antagoniste NMDA', h: 'Dextrométhorphane-bupropion', p: 'Autorisé aux États-Unis depuis 2022 : le bupropion inhibe le CYP2D6 et prolonge l’action du dextrométhorphane. Non disponible en France.' }
+      { tag: 'agoniste D2/D3', h: 'Pramipexole', ill: 'pramipexole', p: 'Pour l’anhédonie et le ralentissement. PAX-D (2025), en association dans la dépression résistante : 44 % de réponse à 12 semaines, contre 16 % sous placebo. Nausées, troubles du sommeil ; surveiller l’impulsivité.' },
+      { tag: 'agoniste 5-HT2A', h: 'Psilocybine', ill: 'psilocybine', p: 'Une ou deux séances encadrées : 3,6 à 3,8 points de MADRS de plus que le contrôle à 6 semaines (deux essais de phase 3). Prescrite en Australie depuis 2023 ; en France, seulement en recherche.' },
+      { tag: 'psychostimulants', h: 'Méthylphénidate, modafinil', ill: 'psychostimulants', p: 'Fatigue, apathie, hypersomnie : un effet à court terme, dans des essais petits et de faible qualité ; pas d’effet démontré du modafinil sur la dépression (Cochrane 2008).' },
+      { tag: 'antagoniste NMDA', h: 'Dextrométhorphane-bupropion', ill: 'dxmbupropion', p: 'Autorisé aux États-Unis depuis 2022 : le bupropion inhibe le CYP2D6 et prolonge l’action du dextrométhorphane. Non disponible en France.' }
     ], reveal: 'heads', min: 9 },
     { call: 'note', t: 'Hors AMM en France ou non disponibles : à discuter en équipe spécialisée, ou dans le cadre d’un essai clinique.', f: true }
   ],
-  more: [{ p: 'Ces molécules ont souvent été repérées en dehors de la dépression, sur une dimension : le pramipexole dans la maladie de Parkinson (ralentissement, apathie), les psychostimulants dans le TDAH et la narcolepsie (attention, vigilance). Leur effet sur une dimension peut être mal capté par les échelles de dépression classiques ((hamilton|l’échelle de Hamilton)).' }],
+  more: [{ p: 'Dans PAX-D, un patient sur cinq arrête le pramipexole pour nausées, troubles du sommeil ou vertiges. Pour la psilocybine, la demande d’autorisation est en cours aux États-Unis, après deux essais de phase 3 (2025–2026).' }, { p: 'Ces molécules ont souvent été repérées en dehors de la dépression, sur une dimension : le pramipexole dans la maladie de Parkinson (ralentissement, apathie), les psychostimulants dans le TDAH et la narcolepsie (attention, vigilance). Leur effet sur une dimension peut être mal capté par les échelles de dépression classiques ((hamilton|l’échelle de Hamilton)).' }],
   notes: 'Diapositive d’approfondissement, à survoler si le temps manque. Le pramipexole est la piste la mieux étayée en association (PAX-D), au prix d’effets indésirables fréquents. La psilocybine se donne en séances encadrées, avec préparation et intégration : ce n’est pas un traitement à emporter.',
   src: 'Browning et al., Lancet Psychiatry 2025 ; Compass Pathways 2025–2026 ; TGA 2023 ; Candy et al., Cochrane 2008 ; FDA 2022' },
 

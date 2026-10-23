@@ -82,10 +82,12 @@ function predictHTML(b, ctx) {
 }
 
 /* ───────── Cartes d’archive (anecdotes historiques) ───────── */
-function histCardHTML(id, F, b) {
+/* en projection, la date, le lieu et le titre d’abord : le récit (et la molécule) vient au clic suivant, le temps de le raconter */
+function histCardHTML(id, F, b, ctx) {
   const H = HI[id]; if (!H) { console.warn('Histoire inconnue :', id); return ''; }
-  return '<article class="archive' + (b && b.wide ? ' wide' : '') + '"' + (F || '') + '><div class="ar-top"><span class="ar-y">' + esc(H.y) + '</span><span class="ar-place">' + esc(H.place || '') + '</span></div><div class="ar-body"><div class="ar-txt"><h5>' + md(H.t) + '</h5><p>' + md(H.body) + '</p>' + (H.src ? '<span class="src">' + md(H.src) + '</span>' : '') + '</div>' +
-    (H.mol ? '<figure class="ar-mol">' + molSVG(H.mol, { w: 230, ink: 'var(--night-ink)', faint: 'var(--night-lead)' }) + '<figcaption>' + esc(H.molName || H.mol) + '</figcaption></figure>' : '') + '</div></article>';
+  const fs = ctx && ctx.mode === 'deck' && !(b && b.whole) ? ' data-f="' + (++ctx.f) + '"' : '';
+  return '<article class="archive' + (b && b.wide ? ' wide' : '') + '"' + (F || '') + '><div class="ar-top"><span class="ar-y">' + esc(H.y) + '</span><span class="ar-place">' + esc(H.place || '') + '</span></div><div class="ar-body"><div class="ar-txt"><h5>' + md(H.t) + '</h5><div class="ar-story"' + fs + '><p>' + md(H.body) + '</p>' + (H.src ? '<span class="src">' + md(H.src) + '</span>' : '') + '</div></div>' +
+    (H.mol ? '<figure class="ar-mol"' + fs + '>' + molSVG(H.mol, { w: 230, ink: 'var(--night-ink)', faint: 'var(--night-lead)' }) + '<figcaption>' + esc(H.molName || H.mol) + '</figcaption></figure>' : '') + '</div></article>';
 }
 function molChip(id) {
   const M = MOLS[id]; if (!M) { console.warn('Molécule inconnue :', id); return ''; }
