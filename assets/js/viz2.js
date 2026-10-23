@@ -307,6 +307,28 @@ VIZ.tiles = {
 
 /* ───────── Figure : la relation dose–occupation est hyperbolique (Horowitz et Taylor 2019) ─────────
    Schéma : occupation = 90 % × D / (D + 10 % de la dose habituelle). Paliers égaux contre paliers proportionnels. */
+/* ───────── Trois monoamines, des dimensions qui se recouvrent (d’après Stahl 2013, chap. 7) ─────────
+   Un diagramme de Venn simplifié : chaque cercle est un système, chaque zone une dimension symptomatique.
+   En projection : les cercles, puis les dimensions propres à chaque système, les recouvrements, le centre. */
+FIG.dimensions = (b, ctx) => {
+  const deck = ctx && ctx.mode === 'deck', F = () => deck ? ' data-f="' + (++ctx.f) + '"' : '';
+  const W = 860, H = 720, R = 210, u = 'dm' + Math.random().toString(36).slice(2, 7);
+  const C = { '5ht': [310, 250, 'Sérotonine'], na: [550, 250, 'Noradrénaline'], da: [430, 460, 'Dopamine'] };
+  const grad = k => '<radialGradient id="' + u + k + '" cx=".5" cy=".45" r=".6"><stop offset="0" style="stop-color:var(--c' + k + '-a)"/><stop offset=".7" style="stop-color:var(--c' + k + ')"/><stop offset="1" style="stop-color:var(--c' + k + '-b)"/></radialGradient>';
+  const lines = (x, y, arr, cls) => '<text class="dr' + (cls ? ' ' + cls : '') + '" x="' + x + '" y="' + (y - (arr.length - 1) * 13) + '" text-anchor="middle" ' + F_SANS + '>' + arr.map((t, i) => '<tspan x="' + x + '" dy="' + (i ? 26 : 0) + '">' + t + '</tspan>').join('') + '</text>';
+  let g = '<svg class="dim-svg" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Trois cercles qui se recouvrent : sérotonine, noradrénaline et dopamine. Sérotonine seule : obsessions, compulsions, mémoire. Noradrénaline seule : vigilance, concentration, énergie. Dopamine seule : récompense, motivation. Sérotonine et noradrénaline : anxiété, impulsivité, irritabilité. Sérotonine et dopamine : appétit, agressivité, sexualité. Noradrénaline et dopamine : attention. Les trois : humeur et cognition.">';
+  g += '<defs>' + grad('5ht') + grad('na') + grad('da') + '</defs>';
+  Object.entries(C).forEach(([k, [x, y]]) => { g += '<circle class="dc dc-' + k + '" cx="' + x + '" cy="' + y + '" r="' + R + '" fill="url(#' + u + k + ')"/>'; });
+  Object.entries(C).forEach(([k, [x, y]]) => { g += '<circle class="dc-l dc-' + k + '" cx="' + x + '" cy="' + y + '" r="' + R + '"/>'; });
+  /* les noms des systèmes, aux coins, avec la pastille de leur couleur */
+  const nm = (k, x, y, anchor) => { const w = C[k][2].length * 11.5; const dx = anchor === 'end' ? x - w - 18 : anchor === 'middle' ? x - w / 2 - 18 : x; return '<g class="dn"><circle cx="' + (dx + 8) + '" cy="' + (y - 7) + '" r="9" fill="url(#' + u + k + ')"/><text x="' + (dx + 24) + '" y="' + y + '" ' + F_MONO + '>' + C[k][2].toUpperCase() + '</text></g>'; };
+  g += nm('5ht', 34, 46, 'start') + nm('na', 826, 46, 'end') + nm('da', 430, 708, 'middle');
+  g += '<g class="dg"' + F() + '>' + lines(215, 198, ['obsessions', 'compulsions', 'mémoire']) + lines(645, 198, ['vigilance', 'concentration', 'énergie']) + lines(430, 573, ['récompense', 'motivation']) + '</g>';
+  g += '<g class="dg"' + F() + '>' + lines(430, 172, ['anxiété', 'impulsivité', 'irritabilité']) + lines(312, 391, ['appétit', 'agressivité', 'sexualité']) + lines(550, 391, ['attention']) + '</g>';
+  g += '<g class="dg"' + F() + '>' + lines(430, 325, ['humeur', 'cognition'], 'dc-c') + '</g>';
+  return g + '</svg>';
+};
+
 /* ───────── Arrêter : l’occupation du SERT au fil des paliers ─────────
    Relation hyperbolique dose–occupation (Horowitz et Taylor 2019) : occupation maximale 90 %, demi-effet à 10 % de la dose
    habituelle. À gauche, la décroissance classique (paliers égaux de dose) ; à droite, la décroissance proportionnelle

@@ -165,7 +165,9 @@ const BLOCKS = {
   refs: (b, ctx, F) => '<ol class="refs"' + F + '>' + b.refs.map(r => '<li>' + (r.href ? '<a href="' + esc(r.href) + '" target="_blank" rel="noopener">' + md(r.t) + '</a>' : md(r.t)) + (r.note ? ' <span class="note">' + md(r.note) + '</span>' : '') + '</li>').join('') + '</ol>',
   objs: (b, ctx, F) => '<ol class="objlist"' + F + '>' + b.objs.map(o => '<li' + ((ctx.mode === 'deck' && b.step) ? ' data-f="' + (++ctx.f) + '"' : '') + '><span class="oid">' + esc(o.replace(/^O(\d+)$/, (m, n) => n.padStart(2, '0'))) + '</span><span>' + md(OBJ[o].t) + '</span></li>').join('') + '</ol>',
   emblem: (b, ctx, F) => '<div class="emblem-box"' + F + '>' + emblemSVG(b.emblem, { size: b.size || 160 }) + '</div>',
-  html: (b, ctx, F) => '<div' + F + '>' + b.html + '</div>'
+  html: (b, ctx, F) => '<div' + F + '>' + b.html + '</div>',
+  /* deux colonnes de blocs (figure à gauche, lecture à droite) ; r : largeur relative de la première */
+  split: (b, ctx, F) => '<div class="split"' + F + (b.r ? ' style="--r:' + esc(b.r) + '"' : '') + '>' + b.split.map(col => '<div class="split-c">' + [].concat(col).map(x => block(x, ctx)).join('') + '</div>').join('') + '</div>'
 };
 function block(b, ctx) {
   if (typeof b === 'string') return '<p>' + md(b) + '</p>';

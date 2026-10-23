@@ -354,6 +354,19 @@ input[type=range]{accent-color:var(--ink);height:24px;cursor:pointer}
 .slide .tile{min-height:64px;padding:9px 12px}
 .slide .tile b{font-size:17px}
 
+/* ——— Dimensions symptomatiques : trois cercles qui se recouvrent ——— */
+.dim-svg{display:block;width:100%;height:auto;max-height:100%;max-width:620px;margin-inline:auto}
+.dim-svg .dc{fill-opacity:.17}
+.dim-svg .dc-l{fill:none;stroke-width:3}
+.dim-svg .dc-l.dc-5ht{stroke:var(--c5ht)} .dim-svg .dc-l.dc-na{stroke:var(--cna-b)} .dim-svg .dc-l.dc-da{stroke:var(--cda)}
+.dim-svg .dn text{font-size:17px;letter-spacing:.16em;fill:var(--ink-2)}
+.dim-svg .dr{font-size:23px;fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:5px;stroke-linejoin:round}
+.dim-svg .dr.dc-c{font-size:27px;font-weight:600}
+:root[data-theme="dark"] .dim-svg .dc{fill-opacity:.24}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dim-svg .dc{fill-opacity:.24}}
+.slide .split .figure{margin:0}
+.slide .dim-svg{max-height:640px;width:auto;max-width:100%;margin-inline:auto}
+
 /* ——— Arrêter : l’occupation du SERT au fil des paliers ——— */
 .hyp-svg{display:block;width:100%;height:auto;max-height:100%}
 .hyp-svg .grid{stroke:var(--rule)}

@@ -30,7 +30,8 @@ function walk(v, where) {
 walk(D, 'D');
 
 const VIZ = ['synapse', 'voies', 'empreintes', 'lithium', 'delai', 'thymo', 'tiles', 'vote'];
-const blocksOf = s => (s.b || []).concat(s.more || []);
+const flat = arr => (arr || []).reduce((acc, x) => acc.concat(x && x.split ? [x].concat(flat([].concat(...x.split))) : [x]), []);
+const blocksOf = s => flat((s.b || []).concat(s.more || []));
 D.slides.forEach(s => {
   if (!CH.has(s.ch)) errs.push('chapitre inconnu ' + s.ch + ' pour ' + s.id);
   (s.obj || []).forEach(o => { if (!O[o]) errs.push('objectif inconnu ' + o + ' dans ' + s.id); });
@@ -44,7 +45,7 @@ D.slides.forEach(s => {
     if (b.formula) b.formula.forEach(k => { if (!STR[k]) errs.push('structure inconnue ' + k + ' dans ' + s.id); });
     if (b.objs) b.objs.forEach(o => { if (!O[o]) errs.push('objectif inconnu dans objs ' + o); });
     if (b.viz === 'empreintes') { (b.rows || []).forEach(r => { if (!D.binding.data[r]) errs.push('ligne d’affinités inconnue ' + r); }); (b.cols || []).forEach(c => { if (!D.binding.cols.some(x => x.id === c)) errs.push('colonne d’affinités inconnue ' + c); }); }
-    if (b.fig && !['hyperbole'].includes(b.fig)) errs.push('figure inconnue ' + b.fig);
+    if (b.fig && !['hyperbole', 'dimensions'].includes(b.fig)) errs.push('figure inconnue ' + b.fig);
   });
   if (!s.src && !['cover', 'section', 'pause'].includes(s.kind) && s.id !== 'objectifs' && s.id !== 'a-retenir' && s.id !== 'references') warns.push('diapositive sans source : ' + s.id);
 });

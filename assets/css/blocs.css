@@ -252,3 +252,8 @@
 .qrc{display:flex;flex-direction:column;gap:.45em;align-items:flex-start;min-width:0}
 .qrc .qr{width:100%;max-width:220px;height:auto}
 .qrc b{font-family:var(--f-display);font-weight:700;font-size:1.02em;line-height:1.2;text-wrap:balance}
+/* deux colonnes de blocs : figure et lecture côte à côte */
+/* deux colonnes en projection (scène fixe, mise à l’échelle) ; empilées dans le cours et le polycopié */
+.split{display:grid;grid-template-columns:minmax(0,1fr);gap:1.4em 2em;align-items:center}
+.split-c{display:flex;flex-direction:column;gap:.8em;min-width:0}
+.slide .split{grid-template-columns:minmax(0,var(--r,1.25fr)) minmax(0,1fr);flex:1;min-height:0}

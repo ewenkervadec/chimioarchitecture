@@ -15,19 +15,19 @@ C.site = {
   id: 'humeur',
   title1: 'Chimioarchitecture',
   title2: 'de l’humeur',
-  short: 'Antidépresseurs et thymorégulateurs : petit précis de psychopharmacologie',
-  kicker: '· Cours pour les internes de psychiatrie ·',
+  short: 'Antidépresseurs et thymorégulateurs, de la synapse à l’ordonnance',
+  kicker: 'Cours pour les internes de psychiatrie · 2 heures',
   author: 'Dr Ewen Kervadec',
   authorShort: 'E. Kervadec',
-  role: 'CCA, Département de psychiatrie et d’addictologie, Hôpital universitaire Paul-Brousse, AP-HP',
-  roleShort: 'CCA · Hôpital Paul-Brousse, AP-HP',
+  role: 'CCA, Département de psychiatrie et d’addictologie, Hôpital universitaire Paul-Brousse',
+  roleShort: 'CCA · Hôpital Paul-Brousse',
   place: 'DES de psychiatrie · Villejuif · 2026',
   year: '2026',
   /* Photographie de couverture : un banc de marbre gravé de sillons remplis de mousse (image fournie par l’auteur). */
   cover: { img: 'assets/img/couverture.jpg', wide: 'assets/img/couverture-16x9.jpg', alt: 'Banc de marbre gravé d’un labyrinthe de sillons remplis de mousse' },
-  lede: 'Pourquoi un médicament qui bloque un transporteur en quelques heures soigne une dépression en quelques semaines ? Pourquoi la lithiémie se prélève le matin ? Comment choisir, ajuster, associer et arrêter ?',
+  lede: 'Pourquoi un médicament qui bloque un transporteur en quelques heures soigne une dépression en quelques semaines ; pourquoi la lithiémie se prélève le matin ; comment choisir, ajuster, associer et arrêter. Un cours à projeter et à manipuler, de la synapse à l’ordonnance.',
   duration: 120,
-  session: 'Le cours alterne des séquences courtes et des questions à la salle : trois questions d’ouverture, des prédictions avant chaque animation, deux cas cliniques, et un retour sur les questions du début. Chacun y répond pour soi, ou à voix haute s’il le souhaite : personne n’est interrogé, rien n’est compté, et la réponse vient au clic suivant.',
+  session: 'Le cours alterne des séquences courtes et des questions à la salle : trois questions d’ouverture, des prédictions avant chaque animation, un cas clinique, et un retour sur les questions du début. Chacun y répond pour soi, ou à voix haute s’il le souhaite : personne n’est interrogé, rien n’est compté, et la réponse vient au clic suivant.',
   asof: 'octobre 2026',
   version: 'Version du 22 octobre 2026',
   pharmaIntro: 'Les antidépresseurs et les thymorégulateurs disponibles en France, rangés par mécanisme selon la nomenclature NbN (ANSM et RCP, état d’octobre 2026). Filtre par profil, puis ouvre une fiche : indications de l’AMM, posologie, effets indésirables, interactions, situations particulières et conseils pratiques.',
@@ -40,18 +40,19 @@ C.site = {
     'Bennabi D et al. Clinical guidelines for the management of treatment-resistant depression: French recommendations from experts, the French Association for Biological Psychiatry and Neuropsychopharmacology and the fondation FondaMental. _BMC Psychiatry_ 2019;19:262.',
     'Yatham LN et al. CANMAT and ISBD 2018 guidelines for the management of patients with bipolar disorder. _Bipolar Disord_ 2018;20:97–170.',
     'Cipriani A et al. Comparative efficacy and acceptability of 21 antidepressant drugs. _Lancet_ 2018;391:1357–66.',
-    'ANSM, dossier « Antidépresseurs » et disponibilité des médicaments (2026) ; RCP des spécialités ; avis de la Commission de la transparence (HAS).'
+    'ANSM, dossier « Antidépresseurs » et disponibilité des médicaments (2026) ; cadre de prescription compassionnelle de la kétamine (mars 2026) ; RCP des spécialités ; avis de la Commission de la transparence (HAS).',
+    'Rabu C. Antidépresseurs. Cours du DU de pharmaco-psychiatrie, GHU Henri Mondor, 2022.'
   ],
   foot: 'Contenu rédigé d’après Stahl (_Essential Psychopharmacology_, 4e éd., 2013 ; _Prescriber’s Guide_, 7e éd., 2021), Shorter (_A History of Psychiatry_, 1997), les recommandations françaises et internationales et les RCP français. Les textes sont reformulés et les figures sont originales. Ressource pédagogique : elle ne remplace ni le RCP ni un avis médical ; vérifier les posologies et les règles de prescription en vigueur avant de prescrire.'
 };
 C.sisters = [];
 
 C.chapters = [
-  { id: 'ouv', n: '00', t: 'Ouverture', mins: 8, emblem: 'hourglass', sub: 'Une histoire, un plan, quelques questions.' },
-  { id: 'chimio', n: '01', t: 'Chimioarchitecture', mins: 22, emblem: 'funnel', sub: 'Trois monoamines, une poignée de noyaux, presque tout le cerveau.' },
-  { id: 'ad', n: '02', t: 'Antidépresseurs', mins: 28, emblem: 'loop', sub: 'Un délai d’action, huit mécanismes, vingt-quatre molécules.' },
+  { id: 'ouv', n: '00', t: 'Ouverture', mins: 8, emblem: 'hourglass', sub: 'Une histoire, trois questions, un plan.' },
+  { id: 'chimio', n: '01', t: 'Chimioarchitecture', mins: 21, emblem: 'funnel', sub: 'Trois monoamines, une poignée de noyaux, presque tout le cerveau.' },
+  { id: 'ad', n: '02', t: 'Antidépresseurs', mins: 30, emblem: 'loop', sub: 'Un délai d’action, dix mécanismes, vingt-quatre molécules.' },
   { id: 'thymo', n: '03', t: 'Thymorégulateurs', mins: 25, emblem: 'spiral', sub: 'Traiter et prévenir, par le haut et par le bas.' },
-  { id: 'strat', n: '04', t: 'Stratégies', mins: 25, emblem: 'arch', sub: 'Choisir, suivre, changer, associer, arrêter.' },
+  { id: 'strat', n: '04', t: 'Stratégies', mins: 24, emblem: 'arch', sub: 'Choisir, suivre, changer, associer, arrêter.' },
   { id: 'clot', n: '05', t: 'Clôture', mins: 7, emblem: 'grid', sub: 'Répondre, retenir, revenir.' }
 ];
 
@@ -87,11 +88,11 @@ C.tileGroups = [
 /* Déroulé de la séance (page d’accueil) : minutes depuis le début */
 C.plan = [
   { from: 0, to: 8, t: 'Ouverture', m: 'Une histoire de 1952 et trois questions laissées en suspens.', sid: 'couverture' },
-  { from: 8, to: 30, t: 'Chimioarchitecture', m: 'La vie d’une monoamine, les voies, les récepteurs, les affinités.', sid: 'sec-chimio' },
-  { from: 30, to: 58, t: 'Antidépresseurs', m: 'Le délai d’action sur la synapse animée, puis les classes une à une.', sid: 'sec-ad' },
-  { from: 58, to: 63, t: 'Pause', m: 'Cinq minutes ; la synapse reste en ligne.', sid: 'pause' },
-  { from: 63, to: 88, t: 'Thymorégulateurs', m: 'La boussole, le lithium (titration et lithiémie), les anticonvulsivants, les antipsychotiques.', sid: 'sec-thymo' },
-  { from: 88, to: 113, t: 'Stratégies', m: 'Choisir, suivre, changer, associer, arrêter ; les situations particulières.', sid: 'sec-strat' },
+  { from: 8, to: 29, t: 'Chimioarchitecture', m: 'La vie d’une monoamine, les voies, les récepteurs, les affinités.', sid: 'sec-chimio' },
+  { from: 29, to: 59, t: 'Antidépresseurs', m: 'Le délai d’action sur la synapse animée, les classes une à une, dix mécanismes, l’échelle de Hamilton.', sid: 'sec-ad' },
+  { from: 59, to: 64, t: 'Pause', m: 'Cinq minutes ; la synapse reste en ligne.', sid: 'pause' },
+  { from: 64, to: 89, t: 'Thymorégulateurs', m: 'La boussole, le lithium (titration et lithiémie), les anticonvulsivants, les antipsychotiques.', sid: 'sec-thymo' },
+  { from: 89, to: 113, t: 'Stratégies', m: 'Choisir selon la dimension et la forme clinique, suivre, changer, associer, arrêter ; les situations particulières.', sid: 'sec-strat' },
   { from: 113, to: 120, t: 'Clôture', m: 'Les trois questions du début, sept messages, des codes QR pour revenir.', sid: 'post-delai' }
 ];
 
@@ -222,7 +223,15 @@ C.history = [
     src: 'Berman et al., _Biol Psychiatry_ 2000 ; FDA 2019 ; HAS, avis du 17 juillet 2024', sid: 'esketamine' },
   { id: 'h-tianeptine', y: '2012', place: 'France', t: 'Un antidépresseur sur ordonnance sécurisée', mol: 'tianeptine', molName: 'tianeptine',
     body: 'Devant les cas d’abus et de dépendance, la tianeptine est soumise en France, depuis le 3 septembre 2012, à une partie de la réglementation des stupéfiants. En 2014, on montre que c’est un agoniste complet du récepteur µ-opioïde : son mécanisme « sérotoninergique » était faux.',
-    src: 'Arrêté du 27 juillet 2012 ; Gassaway et al., _Transl Psychiatry_ 2014', sid: 'trois-mecanismes' }
+    src: 'Arrêté du 27 juillet 2012 ; Gassaway et al., _Transl Psychiatry_ 2014', sid: 'trois-mecanismes' },
+  { id: 'h-hamilton', y: '1960', place: 'Leeds', t: 'Un psychiatre statisticien invente l’étalon des essais',
+    body: 'Max Hamilton, né en 1912 à Offenbach et arrivé enfant en Angleterre, est médecin de la Royal Air Force pendant la guerre, puis se forme à la psychiatrie au Maudsley. Le psychologue Cyril Burt, qui a repéré son talent mathématique, l’oriente vers les statistiques médicales. À Leeds, il publie en 1960 « A rating scale for depression » : 17 items cotés par le clinicien, de 0 à 2 ou de 0 à 4, sur 52 points.',
+    more: 'Conçue pour des patients déjà diagnostiqués, souvent hospitalisés, à l’époque des tricycliques, l’échelle pèse lourd sur le sommeil, l’anxiété et les plaintes somatiques. Elle reste le critère principal de nombreux essais ; la MADRS (1979), plus courte et centrée sur le cœur de la dépression, a été conçue pour mieux suivre le changement sous traitement. Hamilton publie aussi une échelle d’anxiété (1959) ; professeur à Leeds de 1963 à 1977, il meurt en 1988.',
+    src: 'Hamilton, _J Neurol Neurosurg Psychiatry_ 1960;23:56–62 ; Bagby et al., _Am J Psychiatry_ 2004', sid: 'hamilton' },
+  { id: 'h-mianserine', y: '1967–1979', place: 'Organon, Pays-Bas', t: 'Le frein α2, compris après coup', mol: 'mianserine', molName: 'miansérine',
+    body: 'Brevetée par Organon en 1967, la miansérine (Org GB 94) est d’abord étudiée pour ses propriétés antisérotoninergiques et antihistaminiques. Son profil à l’EEG, proche de celui de l’amitriptyline, en fait un antidépresseur présumé ; les essais des années 1970 le confirment, sans les effets anticholinergiques ni la toxicité en surdosage des tricycliques. Elle est commercialisée en Allemagne en 1975, en France en 1979 (Athymil).',
+    more: 'Son mécanisme principal, le blocage des récepteurs α2 qui freinent la libération de noradrénaline, n’est décrit qu’en 1977 (Baumann et Maître) : un nouveau mécanisme antidépresseur, une fois encore compris après la molécule. La mirtazapine, analogue proche, arrive au milieu des années 1990.',
+    src: 'Fink et al., _Psychopharmacology_ 1977 ; Baumann et Maître 1977 ; Rabu 2022 (DU de pharmaco-psychiatrie)', sid: 'antagonistes-a2' }
 ];
 
 /* ─── mols-ad ─── */
@@ -1302,7 +1311,10 @@ C.terms = {
   'serendipite': { t: 'Sérendipité', k: 'hist', en: 'serendipity', def: 'Découverte fortuite d’un phénomène que l’on ne cherchait pas, par un observateur capable d’en saisir la portée ; le mot a été forgé par Horace Walpole en 1754.', more: 'La psychopharmacologie de l’humeur en est pétrie : l’iproniazide était un antituberculeux, l’imipramine un candidat antipsychotique, le lithium de Cade servait à dissoudre l’acide urique, et l’acide valproïque était un solvant de laboratoire. Les mécanismes n’ont été compris qu’après coup.', see: ['imipraminique', 'reserpine'], src: 'Shorter 1997, chap. 7 ; notes d’histoire (Cade 1949 ; Kuhn 1957 ; Carraz 1963)' },
   'reserpine': { t: 'Réserpine', k: 'hist', en: 'reserpine', def: 'Alcaloïde de Rauwolfia serpentina, antihypertenseur et antipsychotique introduit en psychiatrie par Nathan Kline en 1954 ; elle bloque irréversiblement le VMAT2 et vide les neurones de leurs monoamines.', more: 'En 1955, le laboratoire de Brodie montre qu’elle fait disparaître la sérotonine des tissus, y compris du cerveau : premier lien entre biochimie et comportement. Les dépressions attribuées à la réserpine ont nourri l’hypothèse monoaminergique, mais leur réalité a été discutée a posteriori (Baumeister 2003).', see: ['vmat2', 'hypothese-monoaminergique'], src: 'Shorter 1997 (p. 330, 395 et notes) ; Pletscher, Shore et Brodie 1955 ; Baumeister et al. 2003' },
   'thymoanaleptique': { t: 'Thymoanaleptique', k: 'hist', en: 'thymoanaleptic (antidepressant)', def: 'Terme de la classification de Delay et Deniker (1957, validée en 1961) : parmi les psychoanaleptiques, qui stimulent l’activité psychique, les thymoanaleptiques relèvent l’humeur ; ce sont les antidépresseurs.', more: 'La classification oppose psycholeptiques (neuroleptiques, tranquillisants, hypnotiques), psychoanaleptiques et psychodysleptiques (hallucinogènes). Elle classe selon l’effet clinique, à l’inverse de la [[nbn|NbN]], qui classe selon la cible.', see: ['nbn', 'imipraminique'], src: 'Notes d’histoire (techno-science.net) ; Zohar et al. 2015' },
-  'imipraminique': { t: 'Imipraminique', k: 'hist', en: 'imipramine-type (tricyclic) antidepressant', def: 'Terme français désignant les antidépresseurs dérivés de l’imipramine, tricycliques et tétracycliques : amitriptyline, clomipramine, dosulépine, doxépine, imipramine, maprotiline, trimipramine.', more: 'L’imipramine (G 22355), essayée par Roland Kuhn à Münsterlingen chez des schizophrènes, s’est révélée antidépressive en 1955 ; présentée en 1957, elle est nommée imipramine (Tofranil) en 1958. Toutes bloquent le NET (et souvent le SERT), mais aussi H1, M1, α1 et les canaux sodiques, d’où une toxicité qui les place en 2e intention (HAS 2017).', trap: 'La tianeptine a une structure tricyclique mais n’est pas un imipraminique par son mécanisme (agoniste µ-opioïde) : l’ANSM la classe parmi les « autres antidépresseurs ».', see: ['serendipite', 'canaux-na'], src: 'Shorter 1997 (p. 320–323) ; Stahl 2013, chap. 7 (fig. 7-62, tableau 7-12) ; ANSM 2026 ; HAS 2017' }
+  'imipraminique': { t: 'Imipraminique', k: 'hist', en: 'imipramine-type (tricyclic) antidepressant', def: 'Terme français désignant les antidépresseurs dérivés de l’imipramine, tricycliques et tétracycliques : amitriptyline, clomipramine, dosulépine, doxépine, imipramine, maprotiline, trimipramine.', more: 'L’imipramine (G 22355), essayée par Roland Kuhn à Münsterlingen chez des schizophrènes, s’est révélée antidépressive en 1955 ; présentée en 1957, elle est nommée imipramine (Tofranil) en 1958. Toutes bloquent le NET (et souvent le SERT), mais aussi H1, M1, α1 et les canaux sodiques, d’où une toxicité qui les place en 2e intention (HAS 2017).', trap: 'La tianeptine a une structure tricyclique mais n’est pas un imipraminique par son mécanisme (agoniste µ-opioïde) : l’ANSM la classe parmi les « autres antidépresseurs ».', see: ['serendipite', 'canaux-na'], src: 'Shorter 1997 (p. 320–323) ; Stahl 2013, chap. 7 (fig. 7-62, tableau 7-12) ; ANSM 2026 ; HAS 2017' },
+  'hamd': { t: 'Échelle de Hamilton (HAM-D)', k: 'cli', en: 'Hamilton Depression Rating Scale (HAM-D, HDRS)', def: 'Échelle d’hétéro-évaluation de la sévérité de la dépression (Hamilton, 1960) : 17 items cotés par le clinicien de 0 à 2 ou de 0 à 4, score total de 0 à 52.', more: 'Trois items portent sur le sommeil et six sur l’anxiété et les plaintes somatiques (agitation, anxiété psychique et somatique, symptômes digestifs et généraux, hypocondrie), contre un seul sur l’humeur dépressive : une molécule sédative ou anxiolytique peut faire baisser le score sans agir sur le cœur de la dépression. Elle reste un critère principal fréquent des essais, à côté de la [[madrs|MADRS]].', see: ['madrs', 'reponse'], src: 'Hamilton 1960 ; Bagby et al. 2004' },
+  'caracteristiques-psychotiques': { t: 'Caractéristiques psychotiques', k: 'cli', en: 'psychotic features', def: 'EDC accompagné d’idées délirantes ou d’hallucinations, congruentes à l’humeur (culpabilité, ruine, châtiment, maladie, mort) ou non congruentes (DSM-5).', more: 'Forme sévère, à haut risque suicidaire, souvent méconnue quand le patient tait ses idées délirantes. Le traitement associe un antidépresseur et un antipsychotique de 2e génération, ou repose sur l’[[ect|ECT]], souvent la plus rapide ; un antidépresseur seul est insuffisant.', see: ['melancolie', 'ect'], src: 'DSM-5 ; Kruizinga et al., Cochrane 2021' },
+  'caracteristiques-atypiques': { t: 'Caractéristiques atypiques', k: 'cli', en: 'atypical features', def: 'EDC où l’humeur reste réactive aux événements positifs, avec au moins deux signes parmi : prise de poids ou hyperphagie, hypersomnie, sensation de membres lourds (« paralysie de plomb »), sensibilité durable au rejet (DSM-5).', more: 'Plus fréquentes chez la femme, à début précoce, et dans le trouble bipolaire, surtout de type II. Les IMAO y font mieux que les imipraminiques ; les ISRS sont efficaces et mieux tolérés.', see: ['melancolie', 'depression-bipolaire'], src: 'DSM-5 ; Pae et al., CNS Drugs 2009' }
 };
 
 /* ─── panes ─── */
@@ -1338,7 +1350,7 @@ C.slides.push(
 
 /* ───────── 00 · Ouverture ───────── */
 { id: 'couverture', ch: 'ouv', kind: 'cover', t: 'Chimioarchitecture de l’humeur', short: 'Couverture', mins: 1,
-  sub: 'Antidépresseurs et thymorégulateurs : petit précis de psychopharmacologie',
+  sub: 'Antidépresseurs et thymorégulateurs : des récepteurs à la prescription',
   notes: 'Se présenter. Annoncer le déroulé : deux heures, des questions posées à la salle en chemin. Chacun y répond pour soi, ou à voix haute s’il le souhaite ; personne n’est interrogé et l’on ne compte rien. Tout est en ligne : diapositives, fiches des molécules, cartes de révision.' },
 
 { id: 'sea-view', ch: 'ouv', t: 'Staten Island, 1952 : on danse dans les couloirs', short: 'Sea View, 1952', mins: 2,
@@ -1417,7 +1429,7 @@ C.slides.push(
   notes: 'Faire nommer à la salle l’étape visée par chaque grande classe : « les ISRS ? la recapture ; les IMAO ? la dégradation ». Insister sur l’autorécepteur : c’est la clé du délai d’action, qu’on verra dans une demi-heure.',
   src: 'Stahl 2013, chap. 6, fig. 6-25, 6-26 et 6-33' },
 
-{ id: 'reserpine', ch: 'chimio', t: '1955 : la réserpine et l’hypothèse monoaminergique', short: 'La réserpine', mins: 1.5, obj: ['O1'],
+{ id: 'reserpine', ch: 'chimio', t: '1955 : la réserpine et l’hypothèse monoaminergique', short: 'La réserpine', mins: 1, obj: ['O1'],
   b: [
     { hist: 'h-reserpine' },
     { quote: 'It is possible that the 5-HT in our brains plays an essential part in keeping us sane.', who: 'John Gaddum, 1953', f: true },
@@ -1494,7 +1506,7 @@ C.slides.push(
   notes: 'Montrer d’abord la colonne SERT (tout le monde sauf mirtazapine et quétiapine), puis H1 (sédation, poids : amitriptyline, mirtazapine, quétiapine), puis M1 (anticholinergiques : amitriptyline, paroxétine dans une moindre mesure). Puis lire deux lignes complètes : l’amitriptyline touche tout, la mirtazapine ne touche pas le SERT.',
   src: 'Wikipédia (PDSP), Ki en nM ; Meyer et al. 2004' },
 
-{ id: 'ct-affinite', ch: 'chimio', kind: 'question', t: 'Question à la salle · affinité et occupation', short: 'Question : la paroxétine', mins: 2.5, obj: ['O4'],
+{ id: 'ct-affinite', ch: 'chimio', kind: 'question', t: 'Question à la salle · affinité et occupation', short: 'Question : la paroxétine', mins: 2, obj: ['O4'],
   b: [{ vote: 'ct-paroxetine' }],
   notes: 'Laisser une minute de réflexion silencieuse. Demander à un ou deux volontaires leur raisonnement, puis révéler la réponse au clic. Si la salle hésite, revenir sur la matrice des empreintes avant d’avancer.',
   src: 'Wikipédia (PDSP) ; Stahl’s Prescriber’s Guide, 2021' },
@@ -1516,9 +1528,9 @@ C.slides.push(
 C.slides.push(
 
 { id: 'sec-ad', ch: 'ad', kind: 'section', t: 'Antidépresseurs', short: 'Antidépresseurs', mins: 0.5,
-  sub: 'Un délai d’action, huit mécanismes, vingt-quatre molécules.' },
+  sub: 'Un délai d’action, dix mécanismes, vingt-quatre molécules.' },
 
-{ id: 'pharmacopee-ad', ch: 'ad', t: 'Vingt-quatre antidépresseurs en France, rangés par mécanisme', short: 'La pharmacopée', mins: 1.5, obj: ['O5'],
+{ id: 'pharmacopee-ad', ch: 'ad', t: 'Vingt-quatre antidépresseurs en France, rangés par mécanisme', short: 'La pharmacopée', mins: 1, obj: ['O5'],
   b: [{ viz: 'tiles', groups: ['isrs', 'irsna', 'atc', 'imao', 'a2', 'autre'] }],
   more: [
     { p: 'La [[nbn|nomenclature NbN]] (_Neuroscience-based Nomenclature_) nomme un médicament par sa cible et son mode d’action, plutôt que par sa première indication : « inhibiteur de la recapture de la sérotonine » plutôt qu’« antidépresseur », puisque la plupart de ces molécules traitent aussi l’anxiété, le TOC ou la douleur.' },
@@ -1547,10 +1559,10 @@ C.slides.push(
   notes: 'Sept étapes, une notion par clic ; le halo clair montre où regarder. 1, la libération : les vésicules fusionnent avec la membrane. 2, la fixation : la sérotonine se pose un instant sur les récepteurs, qui s’allument. 3, la recapture : elle rentre dans la terminaison par le SERT. 4, l’ISRS : les gélules se logent dans les transporteurs, la sérotonine reste dans la fente. 5, on recule pour voir le neurone entier : la sérotonine s’accumule d’abord autour du corps cellulaire, les autorécepteurs 5-HT1A freinent la décharge (l’oscilloscope s’espace). 6, S2–S4 : les autorécepteurs se désensibilisent, la décharge reprend. 7, S4–S6 : la fente s’enrichit, les récepteurs post-synaptiques s’adaptent (tolérance aux nausées). Avant l’étape 5, demander : « que va faire la sérotonine en excès autour du corps cellulaire ? » ; à la fin : « pourquoi faut-il prévenir le patient ? ».',
   src: 'Stahl 2013, chap. 7, fig. 7-13 à 7-17' },
 
-{ id: 'delai-clinique', ch: 'ad', t: 'Ce que le délai change à la consultation', short: 'Le délai en clinique', mins: 1.5, obj: ['O3'],
+{ id: 'delai-clinique', ch: 'ad', t: 'Ce que le délai change à la consultation', short: 'Le délai en clinique', mins: 1, obj: ['O3'],
   b: [{ viz: 'delai', steps: [{ lvl: 1 }, { lvl: 2 }, { lvl: 3 }, { lvl: 4 }, { lvl: 5 }, { lvl: 6 }] }],
   more: [
-    { kpis: [{ v: '≈ 80 %', l: 'occupation du SERT aux doses minimales efficaces des ISRS (Meyer 2004)' }, { v: '≥ 20 %', l: 'baisse de la HAM-D à S2 : l’[[amelioration-precoce|amélioration précoce]]' }, { v: '82–100 %', l: 'valeur prédictive négative de son absence (Szegedi 2009)' }] },
+    { kpis: [{ v: '≈ 80 %', l: 'occupation du SERT aux doses minimales efficaces des ISRS (Meyer 2004)' }, { v: '≥ 20 %', l: 'baisse de la [[hamd|HAM-D]] à S2 : l’[[amelioration-precoce|amélioration précoce]]' }, { v: '82–100 %', l: 'valeur prédictive négative de son absence (Szegedi 2009)' }] },
     { p: 'La HAS recommande de revoir le patient à une et deux semaines (tolérance, risque suicidaire, observance), puis d’évaluer l’efficacité entre quatre et huit semaines ; chez le sujet âgé, entre six et douze semaines après l’atteinte de la dose minimale efficace.' }
   ],
   notes: 'Les trois repères : S1–S2 on revoit (effets indésirables avant bénéfice, levée d’inhibition et risque suicidaire chez les moins de 25 ans) ; S2 sans aucune amélioration, la réponse ultérieure devient peu probable (valeur prédictive négative élevée, valeur positive faible) ; S4–S8 on évalue la réponse.',
@@ -1599,13 +1611,19 @@ C.slides.push(
       { k: 'warn', h: 'Ce qu’elle coûte', p: 'Sueurs, tachycardie, hausse tensionnelle (HTA à contrôler avant de débuter), rétention urinaire ; syndrome d’arrêt marqué avec la venlafaxine.' }
     ], reveal: 'heads', f: true }
   ],
-  more: [{ p: 'Pour la venlafaxine, le blocage du NET n’apparaît qu’aux doses élevées : à 75 mg/j, c’est surtout un inhibiteur de la recapture de la sérotonine. Sa demi-vie courte (5 h ; métabolite 11 h) explique la sensibilité aux oublis.' }],
+  more: [
+    { p: 'Pour la venlafaxine, le blocage du NET n’apparaît qu’aux doses élevées : à 75 mg/j, c’est surtout un inhibiteur de la recapture de la sérotonine. Sa demi-vie courte (5 h ; métabolite 11 h) explique la sensibilité aux oublis.' },
+    { p: 'Son métabolite actif, la desvenlafaxine, est formé par le [[cyp2d6|CYP2D6]] : chez un métaboliseur lent ou ultrarapide, le rapport entre les deux change, et un dosage plasmatique de la somme venlafaxine + desvenlafaxine aide à comprendre un échec ou une intolérance. La duloxétine se prend volontiers en deux prises au début pour limiter les nausées ; elle est contre-indiquée en cas d’atteinte hépatique.' }
+  ],
   notes: 'Faire le lien avec la diapositive « les monoamines se freinent » : bloquer le NET augmente aussi la dopamine du cortex préfrontal. Question : « un patient sous venlafaxine 75 mg/j est-il sous IRSNa ? » Pas vraiment.',
   src: 'Wikipédia (Tatsumi 1997) ; RCP Effexor LP, Cymbalta ; Stahl 2013, fig. 7-30 à 7-34' },
 
-{ id: 'kuhn', ch: 'ad', t: 'Münsterlingen, 1957 : douze personnes dans la salle', short: 'Kuhn et l’imipramine', mins: 1.5,
+{ id: 'kuhn', ch: 'ad', t: 'Münsterlingen, 1957 : douze personnes dans la salle', short: 'Kuhn et l’imipramine', mins: 1,
   b: [{ hist: 'h-kuhn' }, { hist: 'h-testfall', f: true }],
-  more: [{ formula: ['chlorpromazine', 'imipramine'], names: { chlorpromazine: 'chlorpromazine', imipramine: 'imipramine' }, w: 230 }],
+  more: [
+    { formula: ['chlorpromazine', 'imipramine'], names: { chlorpromazine: 'chlorpromazine', imipramine: 'imipramine' }, w: 230 },
+    { p: 'Geigy cherchait un nouvel antipsychotique dérivé de la chlorpromazine. L’imipramine n’en diffère que par son pont central, un pont éthylène (–CH₂–CH₂–) à la place de l’atome de soufre, et par l’absence de chlore : une modification minime, un tout autre médicament. Remettre le chlore donne la clomipramine.' }
+  ],
   notes: 'Deux faces de la même histoire : une découverte clinique majeure, et des essais conduits sans consentement. Question ouverte : « qu’est-ce qui a changé depuis ? » (Helsinki 1964, consentement, comités d’éthique).',
   src: 'Shorter 1997, p. 320–323 ; Université de Zurich 2019' },
 
@@ -1635,13 +1653,18 @@ C.slides.push(
       { tag: 'réversible · MAO-A', h: '{{moclobemide|Moclobémide}}', p: '[[imao-reversible|IMAO réversible]] : effet fromage modeste, prise en fin de repas ; 24 h suffisent après son arrêt.' }
     ], f: true }
   ],
-  more: [{ hist: 'h-moclobemide' }],
+  more: [
+    { hist: 'h-moclobemide' },
+    { p: 'Aliments riches en tyramine, à éviter sous IMAO irréversible : fromages affinés, charcuteries et viandes fermentées ou faisandées, poissons fumés ou marinés, sauce soja et produits du soja fermenté, choucroute, extraits de levure, bières artisanales ou à la pression, fruits trop mûrs (avocat, banane). Les fromages frais ne posent pas de problème.' },
+    { call: 'fr', t: 'L’iproniazide est en rupture depuis novembre 2023, sans date de retour. Restent le moclobémide (AMM) et, après échec des autres antidépresseurs, l’accès compassionnel (ANSM) à d’autres IMAO : phénelzine, tranylcypromine, sélégiline transdermique. Un IMAO irréversible garde une place dans les dépressions résistantes, en particulier atypiques.' }
+  ],
   notes: 'La MAO intestinale et hépatique détruit la tyramine alimentaire. Inhibée de façon irréversible, elle la laisse passer : la tyramine entre dans les terminaisons noradrénergiques et chasse la noradrénaline des vésicules, d’où la poussée hypertensive. Retenir surtout les fenêtres : ce sont elles qui évitent le syndrome sérotoninergique au changement.',
-  src: 'RCP Marsilid, Moclamine ; Healy 1997 ; Stahl 2013, chap. 7' },
+  src: 'RCP Marsilid, Moclamine ; ANSM, disponibilité de Marsilid (2026) ; Healy 1997 ; Stahl 2013, chap. 7' },
 
 { id: 'antagonistes-a2', ch: 'ad', t: 'Antagonistes α2 : lever le frein', short: 'Mirtazapine et miansérine', mins: 2, obj: ['O5', 'O3'],
   b: [{ viz: 'synapse', tour: 'mirta', steps: [{ s: 1 }, { s: 2 }] }],
   more: [
+    { hist: 'h-mianserine' },
     { p: 'La {{mirtazapine}} bloque les [[a2|α2]] (frein noradrénergique et frein sur les terminaisons sérotoninergiques), ainsi que les récepteurs 5-HT2A, 5-HT2C et 5-HT3 : la sérotonine libérée agit surtout sur 5-HT1A, d’où peu de nausées et de troubles sexuels. Son affinité très forte pour [[h1|H1]] la rend sédative et orexigène dès 7,5–15 mg.' },
     { p: 'La {{mianserine}} a un profil voisin ; son RCP de 2025 la contre-indique avec les médicaments allongeant le QT, dont le citalopram et l’escitalopram : attention en association.' }
   ],
@@ -1654,22 +1677,62 @@ C.slides.push(
     { tag: 'MT1/MT2 + 5-HT2C', h: '{{agomelatine|Agomélatine}}', p: 'Agoniste mélatoninergique, antagoniste 5-HT2C. Peu de troubles sexuels. **Transaminases** avant, puis vers S3, S6, S12, S24 et à chaque augmentation ; pas après 75 ans.' },
     { k: 'warn', tag: 'agoniste µ', h: '{{tianeptine|Tianeptine}}', p: 'Agoniste µ-opioïde : mésusage et dépendance. [[ordonnance-securisee|Ordonnance sécurisée]], 28 jours au plus. Troisième intention (HAS 2017).' }
   ], reveal: 'heads' }],
-  more: [{ hist: 'h-tianeptine' }],
+  more: [
+    { hist: 'h-tianeptine' },
+    { p: 'La vortioxétine améliore, dans des essais dédiés, la vitesse de traitement de l’information (test DSST), en partie indépendamment de l’humeur (McIntyre et al. 2014) ; l’intérêt clinique de cet effet reste discuté.' }
+  ],
   notes: 'L’agomélatine illustre le frein 5-HT2C : en le bloquant, elle libère dopamine et noradrénaline dans le cortex préfrontal, sans ajouter de sérotonine. La tianeptine montre qu’un mécanisme « admis » peut être faux pendant des décennies.',
   src: 'RCP Brintellix, Valdoxan, Stablon ; HAS 2017 ; Gassaway et al. 2014' },
 
-{ id: 'esketamine', ch: 'ad', t: 'Eskétamine : un effet en quelques heures, sous conditions', short: 'L’eskétamine', mins: 1.5, obj: ['O5', 'O8'],
+{ id: 'dix-mecanismes', ch: 'ad', t: 'Dix mécanismes, une seule logique : bloquer une sortie ou lever un frein', short: 'Dix mécanismes', mins: 2, obj: ['O5'],
+  b: [
+    { table: { head: ['Mécanisme', 'Ce qui augmente', 'En France'], rows: [
+      ['Inhibition du [[sert|SERT]]', 'sérotonine', 'ISRS, IRSNa, imipraminiques, vortioxétine'],
+      ['Inhibition du [[net|NET]]', 'noradrénaline, et dopamine dans le cortex préfrontal', 'IRSNa, imipraminiques (maprotiline surtout)'],
+      ['Inhibition du [[dat|DAT]]', 'dopamine', 'bupropion, dont l’AMM française se limite au sevrage tabagique'],
+      ['Inhibition de la [[mao|MAO]]', 'les trois monoamines', 'moclobémide ; iproniazide en rupture'],
+      ['Antagonisme [[a2|α2]]', 'noradrénaline et sérotonine (frein levé)', '{{mirtazapine}}, {{mianserine|miansérine}}'],
+      ['Antagonisme [[r5ht2c|5-HT2C]]', 'noradrénaline et dopamine (frein levé)', '{{agomelatine|agomélatine}}, fluoxétine, mirtazapine'],
+      ['Agonisme [[r5ht1a|5-HT1A]]', 'sérotonine ; noradrénaline et dopamine en aval', '{{vortioxetine|vortioxétine}} ; aripiprazole et quétiapine (partiels)'],
+      ['Agonisme partiel [[r5ht1b|5-HT1B]]', 'noradrénaline et dopamine', 'vortioxétine'],
+      ['Antagonisme [[r5ht3|5-HT3]]', 'noradrénaline (frein levé), et moins de nausées', 'vortioxétine, mirtazapine'],
+      ['Antagonisme 5-HT7', 'sérotonine et glutamate (frein levé)', 'vortioxétine']
+    ] }, reveal: 'cells' },
+    { call: 'key', t: 'Hors monoamines : NMDA (eskétamine, kétamine), MT1/MT2 (agomélatine), µ-opioïde (tianeptine). Après un échec, associer deux mécanismes différents plutôt que deux molécules qui font la même chose.', f: true }
+  ],
+  more: [{ p: 'Stahl range ainsi tous les antidépresseurs : soit ils empêchent une monoamine de sortir de la synapse (transporteurs) ou d’être détruite (MAO), soit ils lèvent un frein, presque toujours un récepteur qui freine la libération (α2, 5-HT2C, 5-HT3, 5-HT7), soit ils stimulent directement un récepteur (5-HT1A). Ce « chimiogramme » sert à composer une association : un ISRS et un antagoniste α2, par exemple, additionnent deux mécanismes.' }],
+  notes: 'Les mécanismes s’affichent seuls : pour chaque ligne, demander à la salle ce que cela augmente et quelles molécules l’utilisent, avant de révéler. Message final : on associe des mécanismes, pas des molécules ; deux ISRS ensemble n’ajoutent rien.',
+  src: 'Stahl 2013, chap. 7 ; Rabu 2022 (DU de pharmaco-psychiatrie)' },
+
+{ id: 'esketamine', ch: 'ad', t: 'Eskétamine et kétamine : un effet en quelques heures, sous conditions', short: 'Eskétamine et kétamine', mins: 2, obj: ['O5', 'O8'],
   b: [
     { cols: [
       { k: 's-glu', tag: 'mécanisme', h: 'Antagoniste NMDA', p: 'Bouffée de glutamate → récepteurs AMPA → BDNF et synaptogenèse (hypothèse).' },
-      { tag: 'en France', h: 'Dépression résistante sévère', p: 'Au moins deux antidépresseurs de deux classes dans l’épisode ; adulte de moins de 65 ans ; avec un ISRS ou un IRSN. Psychiatre, usage hospitalier, ordonnance sécurisée de 4 semaines au plus.' },
-      { k: 'warn', tag: 'surveiller', h: 'À chaque séance', p: 'Dissociation, sédation, nausées ; pression artérielle avant et environ 40 min après ; surveillance jusqu’à stabilité.' }
+      { tag: 'eskétamine · AMM', h: 'Dépression résistante sévère', p: 'Échec de deux antidépresseurs de deux classes dans l’épisode ; moins de 65 ans ; avec un ISRS ou un IRSN. Spray nasal, à l’hôpital.' },
+      { tag: 'kétamine IV · accès compassionnel', h: 'Idées suicidaires sévères', p: 'Depuis mars 2026 (ANSM) : 0,5 mg/kg en 40 min, à l’hôpital, par un psychiatre ; seconde dose possible à 24–48 h.' },
+      { k: 'warn', tag: 'surveiller', h: 'À chaque séance', p: 'À jeun ; dissociation, sédation, nausées, pression artérielle ; sortie accompagnée, pas de conduite avant le lendemain.' }
     ], reveal: 'heads' },
     { kpis: [{ v: '27 % vs 18 %', l: 'rémission à S8 face à la quétiapine LP (ESCAPE-TRD, en ouvert)' }, { v: 'SMR modéré', l: 'ASMR V : pas de progrès thérapeutique démontré (HAS 2024)' }], f: true }
   ],
-  more: [{ hist: 'h-ketamine' }, { p: 'Une séance : 56 ou 84 mg, soit deux ou trois dispositifs de 28 mg, à cinq minutes d’intervalle ; deux séances par semaine pendant l’induction (S1–S4), puis espacement.' }],
-  notes: 'Un antidépresseur rapide, mais pas un antidépresseur miracle : dans l’essai pivot TRANSFORM-2, la différence avec le placebo était de 3,5 points de MADRS. Sa place est étroite et encadrée.',
-  src: 'HAS, avis du 17 juillet 2024 ; RCP Spravato ; Reif et al. 2023 (ESCAPE-TRD)' },
+  more: [
+    { hist: 'h-ketamine' },
+    { h: 'Eskétamine (Spravato) en pratique' },
+    { ul: [
+      'Prescription réservée au psychiatre, administration à l’hôpital. Une séance : 56 ou 84 mg, soit deux ou trois dispositifs de 28 mg (deux pulvérisations, une par narine), à cinq minutes d’intervalle ; deux séances par semaine pendant l’induction (S1–S4), puis espacement.',
+      'Ne pas manger dans les 2 heures ni boire dans les 30 minutes qui précèdent (nausées, vomissements).',
+      'Pression artérielle avant, puis vers 40 minutes ; surveillance jusqu’à ce que le patient soit stable. Pas de conduite ni de machine avant le lendemain, après une nuit de sommeil.',
+      'Contre-indiquée si une hausse de pression artérielle ou intracrânienne serait dangereuse : anévrisme, antécédent d’hémorragie intracérébrale, événement cardiovasculaire de moins de six semaines. Prudence en cas d’antécédent psychotique.'
+    ] },
+    { h: 'Kétamine IV : le cadre de prescription compassionnelle (ANSM, mars 2026)' },
+    { ul: [
+      'Indication : idées suicidaires sévères de l’adulte (acte récent, plan, idées quotidiennes envahissantes), évaluées cliniquement par un psychiatre.',
+      'À jeun (6 h pour les solides, 2 h pour les liquides) ; report si la pression dépasse 140/90 mmHg ou le pouls 100/min. ECG, saturation et pression en continu pendant la perfusion, puis surveillance d’une heure ; sortie dans les 2 heures, accompagnée.',
+      'Stupéfiant : prescription en toutes lettres, mention de l’accès compassionnel sur l’ordonnance. Revoir le patient à 24 et 72 heures ; la prévention du suicide continue (moyens létaux, entourage, VigilanS).',
+      'Contre-indications : hypertension, AVC récent, insuffisance cardiaque sévère, trouble de l’usage de la kétamine ; prudence après 65 ans, en cas de trouble psychotique ou de dépression psychotique.'
+    ] }
+  ],
+  notes: 'Deux molécules, deux cadres. L’eskétamine a une AMM étroite : dépression résistante sévère, avec un antidépresseur oral. La kétamine racémique en perfusion dispose depuis mars 2026 d’un cadre de prescription compassionnelle pour les idées suicidaires sévères : c’est un traitement de la crise, pas de la dépression, et la prévention du suicide continue après. Un antidépresseur rapide, mais pas miracle : dans l’essai pivot TRANSFORM-2, l’eskétamine ne faisait gagner que 3,5 points de MADRS de plus que le placebo.',
+  src: 'HAS, avis du 17 juillet 2024 ; RCP Spravato ; ANSM, CPC kétamine 2026 ; Reif et al. 2023' },
 
 { id: 'cipriani', ch: 'ad', t: 'Efficacité et acceptabilité : la méta-analyse en réseau de 2018', short: 'Cipriani 2018', mins: 1, obj: ['O5'],
   b: [
@@ -1682,6 +1745,18 @@ C.slides.push(
   ],
   notes: 'L’acceptabilité est mesurée par les arrêts de traitement, toutes causes confondues. Escitalopram, agomélatine et vortioxétine apparaissent dans les deux listes. Ne pas en faire un classement : les intervalles se recouvrent largement.',
   src: 'Cipriani et al., Lancet 2018;391:1357–66' },
+
+{ id: 'hamilton', ch: 'ad', t: 'Leeds, 1960 : mesurer la dépression', short: 'L’échelle de Hamilton', mins: 1,
+  b: [
+    { hist: 'h-hamilton' },
+    { call: 'trap', t: 'Sur les 17 items de la [[hamd|HAM-D]], trois portent sur le sommeil et six sur l’anxiété et les plaintes somatiques, pour un seul sur l’humeur dépressive : une molécule sédative peut gagner des points sans traiter l’humeur.', f: true }
+  ],
+  more: [
+    { p: 'Les six items d’anxiété et de plaintes somatiques : agitation, anxiété psychique, anxiété somatique, symptômes digestifs, symptômes généraux, hypocondrie. La [[madrs|MADRS]] (1979), en dix items, est centrée sur le cœur de la dépression et a été conçue pour suivre le changement sous traitement.' },
+    { p: 'Une circularité à garder en tête : les molécules ont été trouvées par hasard, l’échelle de référence a été construite à l’époque des tricycliques, et l’efficacité des antidépresseurs se mesure avec elle. Une molécule qui agit autrement (sur l’anhédonie, la fatigue, la cognition) peut être sous-estimée par l’outil.' }
+  ],
+  notes: 'Une minute d’histoire et d’esprit critique. Hamilton était à la fois psychiatre et statisticien ; son échelle est devenue l’étalon des essais. Demander : « quels symptômes une échelle de dépression devrait-elle mesurer ? », puis montrer le poids du sommeil et de l’anxiété dans la HAM-D.',
+  src: 'Hamilton, J Neurol Neurosurg Psychiatry 1960 ; Bagby et al., Am J Psychiatry 2004 ; Montgomery et Åsberg 1979' },
 
 { id: 'cas-choix', ch: 'ad', t: 'Cas : quel antidépresseur pour Mme L. ?', short: 'Cas : Mme L.', mins: 3, obj: ['O5', 'O10'],
   b: [{ pair: { q: 'Mme L., 74 ans, épisode dépressif caractérisé d’intensité modérée. Insomnie, perte de 5 kg en deux mois. Fibrillation atriale sous apixaban ; diurétique thiazidique. Natrémie 134 mmol/L. **Quel antidépresseur, à quelle dose, et que surveillez-vous ?**', lab: 'Cas à discuter avec la salle' } }],
@@ -1839,7 +1914,7 @@ C.slides.push(
 { id: 'sec-strat', ch: 'strat', kind: 'section', t: 'Stratégies', short: 'Stratégies', mins: 0.5,
   sub: 'Choisir, suivre, changer, associer, arrêter.' },
 
-{ id: 'choisir', ch: 'strat', t: 'Choisir le premier antidépresseur : les lignes de la HAS', short: 'Les lignes de la HAS', mins: 1.5, obj: ['O5'],
+{ id: 'choisir', ch: 'strat', t: 'Choisir le premier antidépresseur : les lignes de la HAS', short: 'Les lignes de la HAS', mins: 1, obj: ['O5'],
   b: [
     { cols: [
       { tag: '1re intention', h: 'ISRS, IRSNa, autres', p: 'Épisode modéré à sévère : un ISRS, un IRSNa ou un « autre » antidépresseur (mirtazapine, miansérine, vortioxétine).' },
@@ -1849,9 +1924,26 @@ C.slides.push(
     ], reveal: 'heads', min: 10 },
     { call: 'trap', t: 'Pas d’antidépresseur dans un épisode léger ni dans une symptomatologie dépressive subsyndromique : psychothérapie et suivi d’abord.', f: true }
   ],
-  more: [{ p: 'La HAS autorise une benzodiazépine pendant deux semaines au plus si l’anxiété ou l’insomnie sont au premier plan. Elle recommande d’informer le patient du délai d’action et des effets indésirables prévisibles, et de le revoir à une et deux semaines.' }],
+  more: [
+    { p: 'La HAS autorise une benzodiazépine pendant deux semaines au plus si l’anxiété ou l’insomnie sont au premier plan. Elle recommande d’informer le patient du délai d’action et des effets indésirables prévisibles, et de le revoir à une et deux semaines.' },
+    { p: 'Ce qui oriente le choix dans cette ligne : la sévérité et la forme de l’épisode, la réponse et la tolérance antérieures (y compris chez un apparenté du premier degré), les comorbidités somatiques et psychiatriques, les interactions, la préférence du patient, la disponibilité du médicament. La décision croise les données de la recherche, l’expérience du clinicien et la préférence du patient.' }
+  ],
   notes: 'La première ligne est large : le choix dans cette ligne se fait sur le profil du patient (diapositive suivante).',
   src: 'HAS 2017, Épisode dépressif caractérisé de l’adulte' },
+
+{ id: 'dimensions', ch: 'strat', t: 'Choisir selon la dimension qui domine', short: 'Les dimensions', mins: 1.5, obj: ['O2', 'O5'],
+  b: [{ split: [
+    [{ fig: 'dimensions' }],
+    [{ ul: [
+      'Fatigue, manque d’énergie, difficultés de concentration : **noradrénaline et dopamine**. Un IRSNa, ou une molécule qui lève le frein 5-HT2C (agomélatine) ; la fatigue est un symptôme résiduel fréquent sous ISRS.',
+      'Anxiété, irritabilité, impulsivité : **sérotonine et noradrénaline**. ISRS ou IRSNa ; mirtazapine si l’insomnie domine.',
+      'Perte du plaisir et de la motivation : **dopamine**. Mal corrigée par les ISRS, qui peuvent émousser : rechercher un [[emoussement|émoussement]] induit avant d’augmenter la dose.'
+    ], f: true },
+    { call: 'note', t: 'Une carte simplifiée, pas une loi : elle sert surtout à choisir une deuxième ligne ou une association quand une dimension résiste.', f: true }]
+  ], r: '1.1fr' }],
+  more: [{ p: 'Stahl propose de traiter la dépression dimension par dimension : repérer le symptôme qui domine ou qui persiste, le relier aux circuits et aux monoamines qui le portent, puis choisir le mécanisme qui les cible ((dix-mecanismes|les dix mécanismes)). Les recouvrements expliquent qu’un même symptôme réponde à plusieurs classes, et qu’aucune molécule ne cible une seule dimension.' }],
+  notes: 'Montrer d’abord les trois cercles et demander à la salle ce que porte chaque monoamine, puis révéler les dimensions propres, les recouvrements, et le centre : l’humeur et la cognition dépendent des trois. Faire ensuite le lien avec une plainte réelle : « ma patiente va mieux, mais elle n’a toujours envie de rien » → la dopamine, l’émoussement possible sous ISRS.',
+  src: 'Stahl 2013, chap. 7 ; Rabu 2022 (DU de pharmaco-psychiatrie)' },
 
 { id: 'choisir-profil', ch: 'strat', t: 'Puis choisir selon le patient', short: 'Choisir selon le patient', mins: 1.5, obj: ['O5', 'O10'],
   b: [{ table: { head: ['Situation', 'Plutôt', 'Plutôt pas'], rows: [
@@ -1868,7 +1960,20 @@ C.slides.push(
   notes: 'Les situations s’affichent seules : pour chacune, demander à la salle ce qu’elle choisirait avant de révéler la ligne. Ce tableau n’est pas une recommandation officielle : c’est le raisonnement par profil d’effets indésirables vu sur les empreintes. En lecture, la pharmacopée filtrable sous le tableau permet de croiser plusieurs critères.',
   src: 'RCP ; Stahl’s Prescriber’s Guide, 2021 ; HAS 2017' },
 
-{ id: 'suivre', ch: 'strat', t: 'Suivre : les repères des huit premières semaines, et après', short: 'Suivre le traitement', mins: 1.5, obj: ['O3'],
+{ id: 'formes-cliniques', ch: 'strat', t: 'Mélancolique, psychotique, atypique : la forme change le traitement', short: 'Les formes cliniques', mins: 1.5, obj: ['O8', 'O10'],
+  b: [
+    { cols: [
+      { tag: 'plaisir aboli, réveil précoce, ralentissement', h: '[[melancolie|Mélancolique]]', p: 'Les imipraminiques (clomipramine) ont fait mieux que le citalopram et la paroxétine chez des patients hospitalisés (essais danois DUAG, 1986 et 1990) ; venlafaxine en alternative ; ECT si l’état est grave. Le niveau de preuve d’une supériorité reste modeste.' },
+      { k: 'warn', tag: 'idées délirantes, hallucinations', h: '[[caracteristiques-psychotiques|Psychotique]]', p: 'Associer un antidépresseur et un antipsychotique de 2e génération (olanzapine, quétiapine) : plus efficace que l’un ou l’autre seul (Cochrane 2021, preuves de faible niveau). STOP-PD : 42 % de rémission sous olanzapine + sertraline, contre 24 % sous olanzapine seule. L’ECT est la plus rapide dans les formes sévères.' },
+      { tag: 'humeur réactive, hyperphagie, hypersomnie', h: '[[caracteristiques-atypiques|Atypique]]', p: 'Les IMAO font mieux que les imipraminiques ; les ISRS sont efficaces et mieux tolérés. Ces formes sont plus fréquentes dans le trouble bipolaire, surtout de type II : le rechercher.' }
+    ], reveal: 'heads' },
+    { call: 'key', t: 'Rechercher ces caractéristiques à chaque épisode : elles changent le traitement, et l’ECT n’y est pas un dernier recours.', f: true }
+  ],
+  more: [{ p: 'Dans STOP-PD, l’antidépresseur était donné à dose pleine (sertraline 150 à 200 mg/j) avec l’olanzapine (15 à 20 mg/j) ; on évite les antipsychotiques de 1re génération. Après la rémission, poursuivre l’olanzapine 36 semaines a ramené les rechutes de 55 % à 20 % (STOP-PD II), au prix d’une prise de poids (2,6 kg de plus en moyenne).' }],
+  notes: 'Les trois intitulés d’abord : pour chacun, demander à la salle ce qu’elle proposerait. La forme psychotique est la plus importante à ne pas manquer : un antidépresseur seul y est insuffisant, et l’ECT y est souvent le traitement le plus rapide. Dans la forme atypique, penser à la bipolarité.',
+  src: 'DUAG 1986 et 1990 ; Kruizinga et al., Cochrane 2021 ; Meyers et al. 2009 ; Flint et al. 2019 ; Pae et al. 2009' },
+
+{ id: 'suivre', ch: 'strat', t: 'Suivre : les repères des huit premières semaines, et après', short: 'Suivre le traitement', mins: 1, obj: ['O3'],
   b: [{ steps: [
     { t: 'S1 et S2', p: 'Revoir : tolérance, observance, idées suicidaires (surtout avant 25 ans), virage.' },
     { t: 'S2', p: 'Aucune amélioration (moins de 20 %) : une réponse ultérieure devient peu probable ; vérifier la dose et l’observance.' },
@@ -1906,7 +2011,7 @@ C.slides.push(
   notes: 'La logique des délais : cinq demi-vies du médicament arrêté (fluoxétine : la norfluoxétine), ou le temps de resynthèse de la MAO après un IMAO irréversible (environ deux semaines).',
   src: 'RCP Prozac, Effexor LP, Seroplex, Marsilid, Moclamine ; Bennabi et al. 2019' },
 
-{ id: 'ct-switch', ch: 'strat', kind: 'question', t: 'Question à la salle · le changement vers un IMAO', short: 'Question : vers un IMAO', mins: 2.5, obj: ['O9'],
+{ id: 'ct-switch', ch: 'strat', kind: 'question', t: 'Question à la salle · le changement vers un IMAO', short: 'Question : vers un IMAO', mins: 2, obj: ['O9'],
   b: [{ vote: 'ct-switch' }],
   notes: 'Laisser réfléchir, puis prendre une ou deux justifications avant de révéler. Le piège : le délai de 15 jours concerne l’autre sens (après l’arrêt d’un IMAO).',
   src: 'RCP Prozac, Marsilid' },
@@ -1922,9 +2027,26 @@ C.slides.push(
     ], reveal: 'heads', min: 9 },
     { call: 'trap', t: 'Avant de conclure à la résistance : revoir le diagnostic (bipolarité, trouble de la personnalité), l’observance, les addictions, la thyroïde, les interactions.', f: true }
   ],
-  more: [{ p: 'L’[[ect|électroconvulsivothérapie]] n’est pas réservée à la résistance : elle se discute d’emblée en cas d’urgence vitale (refus alimentaire, risque suicidaire majeur), de catatonie ou de mélancolie délirante. La [[rtms|rTMS]] est proposée par les recommandations françaises à partir de la quatrième ligne.' }],
+  more: [
+    { p: 'L’[[ect|électroconvulsivothérapie]] n’est pas réservée à la résistance : elle se discute d’emblée en cas d’urgence vitale (refus alimentaire, risque suicidaire majeur), de catatonie ou de mélancolie délirante. La [[rtms|rTMS]] est proposée par les recommandations françaises à partir de la quatrième ligne.' },
+    { p: 'Associer, c’est additionner des mécanismes différents ((dix-mecanismes|les dix mécanismes)), en partant de la dimension qui résiste ((dimensions|les dimensions)). Les molécules encore hors recommandations sont présentées juste après ((pistes|les pistes)).' }
+  ],
   notes: 'La « pseudo-résistance » est fréquente : dose insuffisante, durée trop courte, non-observance, interaction (inducteur enzymatique, tabac). La vérifier coûte moins cher qu’une potentialisation.',
   src: 'Bennabi et al. 2019 ; HAS, avis eskétamine 2024' },
+
+{ id: 'pistes', ch: 'strat', lvl: 'plus', t: 'Et ensuite ? Des pistes, pas encore des recommandations', short: 'Les pistes', mins: 0.5, obj: ['O8'],
+  b: [
+    { cols: [
+      { tag: 'agoniste D2/D3', h: 'Pramipexole', p: 'Pour l’anhédonie et le ralentissement. Essai PAX-D (2025), en association dans la dépression résistante : 44 % de réponse à 12 semaines, contre 16 % sous placebo ; un patient sur cinq arrête pour nausées, troubles du sommeil ou vertiges. Surveiller l’impulsivité.' },
+      { tag: 'agoniste 5-HT2A', h: 'Psilocybine', p: 'Une ou deux séances encadrées : 3,6 à 3,8 points de MADRS de plus que le contrôle à 6 semaines, dans deux essais de phase 3 (2025–2026). Demande d’autorisation en cours aux États-Unis ; prescrite en Australie depuis 2023 ; en France, seulement en recherche.' },
+      { tag: 'psychostimulants', h: 'Méthylphénidate, modafinil', p: 'Fatigue, apathie, hypersomnie : un effet à court terme des psychostimulants oraux, dans des essais petits et de faible qualité ; pas d’effet démontré du modafinil sur la dépression (Cochrane 2008).' },
+      { tag: 'antagoniste NMDA', h: 'Dextrométhorphane-bupropion', p: 'Autorisé aux États-Unis depuis 2022 : le bupropion inhibe le CYP2D6 et prolonge l’action du dextrométhorphane. Non disponible en France.' }
+    ], reveal: 'heads', min: 9 },
+    { call: 'note', t: 'Hors AMM en France ou non disponibles : à discuter en équipe spécialisée, ou dans le cadre d’un essai clinique.', f: true }
+  ],
+  more: [{ p: 'Ces molécules ont souvent été repérées en dehors de la dépression, sur une dimension : le pramipexole dans la maladie de Parkinson (ralentissement, apathie), les psychostimulants dans le TDAH et la narcolepsie (attention, vigilance). Leur effet sur une dimension peut être mal capté par les échelles de dépression classiques ((hamilton|l’échelle de Hamilton)).' }],
+  notes: 'Diapositive d’approfondissement, à survoler si le temps manque. Le pramipexole est la piste la mieux étayée en association (PAX-D), au prix d’effets indésirables fréquents. La psilocybine se donne en séances encadrées, avec préparation et intégration : ce n’est pas un traitement à emporter.',
+  src: 'Browning et al., Lancet Psychiatry 2025 ; Compass Pathways 2025–2026 ; TGA 2023 ; Candy et al., Cochrane 2008 ; FDA 2022' },
 
 { id: 'bipolaire-phases', ch: 'strat', t: 'Trouble bipolaire : un traitement par phase', short: 'Bipolaire : par phase', mins: 1, obj: ['O7'],
   b: [{ cols: [
@@ -1932,10 +2054,11 @@ C.slides.push(
     { tag: 'dépression', h: 'Par le bas', ul: ['{{quetiapine|Quétiapine}} (seule AMM), lithium ; lamotrigine pour prévenir', 'Antidépresseur seulement associé à un thymorégulateur', 'Jamais en cas d’[[etat-mixte|état mixte]]'] },
     { tag: 'entretien', h: 'Dans la durée', ul: ['Poursuivre ce qui a marché en aigu', 'Le lithium en premier choix', 'Selon la [[polarite-predominante|polarité prédominante]] ; psychoéducation'] }
   ], reveal: 'heads' }],
+  more: [{ p: 'Sous antidépresseur, le risque de virage en traitement aigu est d’environ 14 % dans le trouble bipolaire de type I, 7 % dans le type II et 1,5 % dans la dépression unipolaire (méta-analyse de Bond et al. 2008). Les imipraminiques et les IRSNa y exposent davantage que les ISRS et le bupropion ; dans le type I, un antidépresseur ne se prescrit qu’avec un thymorégulateur, et jamais dans un état mixte (ISBD 2013).' }],
   notes: 'La règle d’or : chez un patient bipolaire, un antidépresseur n’est jamais seul. Les [[cycles-rapides|cycles rapides]] et les états mixtes sont aggravés par les antidépresseurs.',
-  src: 'Yatham et al. 2018 ; Vidal, recommandations trouble bipolaire' },
+  src: 'Yatham et al. 2018 ; Pacchiarotti et al. 2013 ; Bond et al. 2008' },
 
-{ id: 'populations', ch: 'strat', t: 'Grossesse, sujet âgé, cœur, rein et foie', short: 'Situations particulières', mins: 1.5, obj: ['O10'],
+{ id: 'populations', ch: 'strat', t: 'Grossesse, sujet âgé, cœur, rein et foie', short: 'Situations particulières', mins: 1, obj: ['O10'],
   b: [{ cols: [
     { tag: 'grossesse', h: 'Ne pas arrêter brutalement', ul: ['Vérifier chaque molécule sur le [[crat|CRAT]]', 'Sertraline parmi les mieux documentés', 'Lithium possible, encadré ; valproate contre-indiqué', 'Surveillance néonatale ([[htap|HTAP]], adaptation)'] },
     { tag: 'sujet âgé', h: 'Commencer bas, monter lentement', ul: ['[[hyponatremie|Hyponatrémie]], chutes', 'Citalopram ≤ 20 mg/j, escitalopram ≤ 10 mg/j', 'Éviter les anticholinergiques', 'Lithium : 0,4–0,6 mmol/L'] },
@@ -1945,7 +2068,7 @@ C.slides.push(
   notes: 'Le réflexe grossesse : ne jamais arrêter brutalement un traitement efficace à l’annonce d’une grossesse ; vérifier sur le CRAT, en parler avec la patiente, organiser la surveillance néonatale. Un projet de grossesse se prépare : c’est là qu’on change de molécule si besoin.',
   src: 'CRAT ; RCP (ANSM) ; Nolen et al. 2019 ; Stahl’s Prescriber’s Guide, 2021' },
 
-{ id: 'interactions-cyp', ch: 'strat', t: 'Interactions : les inhibiteurs et les inducteurs à connaître', short: 'Interactions CYP', mins: 1.5, obj: ['O10'],
+{ id: 'interactions-cyp', ch: 'strat', t: 'Interactions : les inhibiteurs et les inducteurs à connaître', short: 'Interactions CYP', mins: 1, obj: ['O10'],
   b: [{ table: { head: ['Molécule', 'Enzyme', 'Conséquence'], rows: [
     ['{{fluoxetine|Fluoxétine}}, {{paroxetine|paroxétine}}', '[[cyp2d6|2D6]] inhibé +++', 'Tamoxifène moins actif ; codéine sans effet ; métoprolol, tricycliques, rispéridone augmentés'],
     ['{{fluvoxamine|Fluvoxamine}}', '[[cyp1a2|1A2]] inhibé +++', 'Clozapine, olanzapine, théophylline, caféine augmentées ; agomélatine et duloxétine contre-indiquées'],
@@ -1989,6 +2112,7 @@ C.slides.push(
       { k: 'warn', tag: 'classique', h: 'Paliers égaux de dose', p: 'On retire chaque fois la même quantité, ici un quart de la dose de départ. Comme la courbe dose–occupation est très plate aux doses habituelles, l’occupation du SERT ne bouge presque pas pendant trois paliers (de 82 à 64 %), puis la dernière marche la fait tomber de 64 points d’un coup : c’est là que surviennent les symptômes d’arrêt.' },
       { k: 'ok', tag: 'hyperbolique', h: 'Paliers proportionnels', p: 'On retire chaque fois une fraction de la dose précédente, ici la moitié. Les doses baissent vite au début puis très lentement, mais l’occupation, elle, baisse par marches régulières de 7 à 15 points. La décroissance est plus longue et finit par des doses très faibles.' }
     ] },
+    { p: 'Pour les dernières marches, les formes buvables permettent des doses très faibles : escitalopram en gouttes (1 goutte = 1 mg), citalopram en solution dosée à la seringue graduée, fluoxétine en solution (20 mg/5 mL), amitriptyline en gouttes (1 goutte = 1 mg) ; la suspension buvable de paroxétine n’est plus commercialisée depuis 2023. Option classique mais peu évaluée : relayer un antidépresseur à demi-vie courte par la fluoxétine, dont la longue demi-vie amortit l’arrêt.' },
     { p: 'NICE (2022) recommande de réduire la dose par étapes, chaque palier étant une proportion de la dose précédente (par exemple la moitié). La décroissance hyperbolique repose sur des données d’imagerie et de pharmacologie : elle n’a pas encore été comparée à la décroissance classique dans des essais.' }
   ],
   notes: 'Montrer d’abord la diminution classique : quatre paliers égaux de dose, par exemple 20, 15, 10, 5 mg puis l’arrêt. Demander : « que fait l’occupation du SERT ? ». Elle reste presque au même niveau pendant trois paliers, puis la dernière marche la fait tomber de 64 points d’un coup : c’est là que surviennent les symptômes d’arrêt. Clic : la décroissance hyperbolique, où chaque palier retire la moitié de la dose précédente ; l’occupation baisse par marches régulières, au prix de doses finales très faibles et d’une décroissance plus longue. C’est une proposition fondée sur la pharmacologie (Horowitz et Taylor 2019), reprise par NICE en 2022, pas encore validée par des essais comparatifs.',
@@ -2005,20 +2129,6 @@ C.slides.push(
   ],
   notes: 'Demander d’abord : « quels symptômes attendez-vous après l’arrêt d’un ISRS ? ». Les « décharges électriques » (brain zaps) et les vertiges sont très évocateurs. Le piège : prendre un syndrome d’arrêt pour une rechute et reprendre le traitement au long cours, ou l’inverse.',
   src: 'Horowitz et Taylor 2019 ; NICE NG222, 2022 ; RCP Deroxat, Effexor LP, Prozac' },
-
-{ id: 'cas-final', ch: 'strat', t: 'Cas : M. R., six semaines d’escitalopram', short: 'Cas : M. R.', mins: 2, obj: ['O8', 'O9'],
-  b: [{ pair: { q: 'M. R., 45 ans, deuxième épisode dépressif caractérisé. Escitalopram 10 mg/j depuis six semaines, bien toléré ; MADRS passée de 32 à 27. Il fume un paquet par jour et boit trois verres de vin par soir. **Que faites-vous, dans quel ordre ?**', lab: 'Cas à discuter avec la salle' } }],
-  more: [
-    { h: 'Éléments de réponse' },
-    { ul: [
-      'Baisse de 16 % à S6 : non-réponse. Vérifier d’abord l’observance et le diagnostic ; l’alcool (dépression induite, interaction, observance) est à traiter en même temps.',
-      'Optimiser : escitalopram 20 mg/j (il a moins de 65 ans), à réévaluer après 4 semaines à cette dose.',
-      'Si l’échec persiste : changer de classe (IRSNa, mirtazapine, vortioxétine) par un changement croisé.',
-      'Prévoir la suite : un deuxième échec bien conduit définirait une dépression résistante.'
-    ] }
-  ],
-  notes: 'Lire le cas, laisser une à deux minutes de réflexion, puis prendre les propositions de ceux qui veulent. Ce cas condense le bloc : définition de la réponse, vérifications, optimisation, changement. Faire dire l’ordre plutôt qu’une molécule.',
-  src: 'HAS 2017 ; Bennabi et al. 2019 ; RCP Seroplex' },
 
 /* ───────── 05 · Clôture ───────── */
 { id: 'post-delai', ch: 'clot', kind: 'question', t: 'Retour sur la question d’ouverture 1 · le délai d’action', short: 'Retour sur la question 1', mins: 1,
@@ -2072,6 +2182,9 @@ C.slides.push(
     { t: 'Dunkley EJC et al. The Hunter Serotonin Toxicity Criteria. _QJM_ 2003;96:635–642.' },
     { t: 'Horowitz MA, Taylor D. Tapering of SSRI treatment to mitigate withdrawal symptoms. _Lancet Psychiatry_ 2019;6:538–546.' },
     { t: 'Moncrieff J et al. The serotonin theory of depression. _Mol Psychiatry_ 2023;28:3243–3256.' },
+    { t: 'Hamilton M. A rating scale for depression. _J Neurol Neurosurg Psychiatry_ 1960;23:56–62.' },
+    { t: 'Kruizinga J et al. Pharmacological treatment for psychotic depression. _Cochrane Database Syst Rev_ 2021 ; Bond DJ et al. _J Clin Psychiatry_ 2008;69:1589–1601.' },
+    { t: 'Browning M et al. Pramipexole augmentation in treatment-resistant depression (PAX-D). _Lancet Psychiatry_ 2025 ; ANSM, cadre de prescription compassionnelle de la kétamine, mars 2026.' },
     { t: 'Freeman S et al. Active learning increases student performance. _PNAS_ 2014;111:8410–8415.' }
   ] }],
   src: '' }
@@ -2390,7 +2503,15 @@ C.cards = [
   { id: 'k39', ch: 'strat', q: 'Délai entre l’arrêt de la fluoxétine et un IMAO ? entre un IMAO irréversible et un autre antidépresseur ?', a: 'Au moins 5 semaines ; 2 semaines (15 jours).', src: 'RCP Prozac, Marsilid', sid: 'switch' },
   { id: 'k40', ch: 'strat', q: 'Critères de Hunter du syndrome sérotoninergique ?', a: 'Clonus spontané ; clonus inductible ou oculaire avec agitation ou sueurs ; tremblement et hyperréflexie ; hypertonie, température > 38 °C et clonus.', src: 'Dunkley et al. 2003', sid: 'serotoninergique' },
   { id: 'k41', ch: 'strat', q: 'Pourquoi diminuer un ISRS de façon proportionnelle et plus lentement à la fin ?', a: 'La relation dose–occupation du SERT est hyperbolique : les dernières baisses de dose font chuter l’occupation.', src: 'Horowitz et Taylor 2019', sid: 'arret' },
-  { id: 'k42', ch: 'strat', q: 'Quel effet a l’arrêt du tabac sur la clozapine et l’olanzapine ?', a: 'Leurs taux augmentent : la fumée induit le CYP1A2 (pas la nicotine).', src: 'RCP ; Stahl’s Prescriber’s Guide', sid: 'interactions-cyp' }
+  { id: 'k42', ch: 'strat', q: 'Quel effet a l’arrêt du tabac sur la clozapine et l’olanzapine ?', a: 'Leurs taux augmentent : la fumée induit le CYP1A2 (pas la nicotine).', src: 'RCP ; Stahl’s Prescriber’s Guide', sid: 'interactions-cyp' },
+  { id: 'k43', ch: 'ad', q: 'Quels freins la mirtazapine lève-t-elle, et qu’en résulte-t-il ?', a: 'Elle bloque les α2 : noradrénaline et sérotonine sont libérées ; elle bloque aussi 5-HT2A, 5-HT2C et 5-HT3, si bien que la sérotonine agit surtout sur 5-HT1A (peu de nausées, peu de troubles sexuels).', src: 'Stahl 2013, chap. 7', sid: 'dix-mecanismes' },
+  { id: 'k44', ch: 'ad', q: 'Par quels cinq mécanismes la vortioxétine agit-elle ?', a: 'Inhibition du SERT, agonisme 5-HT1A, agonisme partiel 5-HT1B, antagonisme 5-HT3 et 5-HT7.', src: 'RCP Brintellix ; Stahl 2013', sid: 'dix-mecanismes' },
+  { id: 'k45', ch: 'ad', q: 'Pourquoi la HAM-D peut-elle avantager une molécule sédative ?', a: 'Sur 17 items, trois portent sur le sommeil et six sur l’anxiété et les plaintes somatiques, contre un seul sur l’humeur dépressive.', src: 'Hamilton 1960 ; Bagby et al. 2004', sid: 'hamilton' },
+  { id: 'k46', ch: 'ad', q: 'Comment prescrire un IMAO irréversible en France en 2026 ?', a: 'L’iproniazide est en rupture depuis 2023 : après échec des autres antidépresseurs, accès compassionnel (ANSM) à la phénelzine, la tranylcypromine ou la sélégiline transdermique ; le moclobémide (réversible) reste disponible.', src: 'ANSM 2026', sid: 'imao' },
+  { id: 'k47', ch: 'ad', q: 'Kétamine IV dans les idées suicidaires sévères : quel cadre, quelle dose ?', a: 'Le cadre de prescription compassionnelle de l’ANSM (mars 2026) : 0,5 mg/kg en 40 minutes, à l’hôpital, prescrite par un psychiatre ; seconde dose possible à 24–48 h.', src: 'ANSM, CPC kétamine 2026', sid: 'esketamine' },
+  { id: 'k48', ch: 'strat', q: 'Épisode dépressif avec caractéristiques psychotiques : quel traitement ?', a: 'Un antidépresseur associé à un antipsychotique de 2e génération (olanzapine, quétiapine), ou l’ECT, souvent la plus rapide dans les formes sévères ; un antidépresseur seul est insuffisant.', src: 'Kruizinga et al., Cochrane 2021 ; Meyers et al. 2009', sid: 'formes-cliniques' },
+  { id: 'k49', ch: 'strat', q: 'Risque de virage sous antidépresseur en traitement aigu : trouble bipolaire de type I, de type II, dépression unipolaire ?', a: 'Environ 14 %, 7 % et 1,5 % (méta-analyse de Bond et al. 2008).', src: 'Bond et al. 2008', sid: 'bipolaire-phases' },
+  { id: 'k50', ch: 'strat', q: 'Plainte qui persiste : fatigue, manque d’énergie, difficultés de concentration. Quelles monoamines viser ?', a: 'Surtout la noradrénaline et la dopamine : un IRSNa, ou une molécule qui lève le frein 5-HT2C (agomélatine) ; la fatigue est un symptôme résiduel fréquent sous ISRS.', src: 'Stahl 2013, chap. 7', sid: 'dimensions' }
 ];
 
 /* ─── structures : coordonnées 2D calculées avec RDKit (tools/mols.py) ─── */
